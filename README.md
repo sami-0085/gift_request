@@ -71,6 +71,6 @@ X(旧:Twitter)で告知してゲーム感覚で利用してもらう
 
 
 ## 画面遷移図
-
+Figma：https://www.figma.com/file/gEFMyEx0QNwnjENitaVhOm/gift_request?type=design&node-id=0%3A1&mode=design&t=lq3JcScmWoDpdYl2-1
 
 ## ER図
