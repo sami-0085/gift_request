@@ -71,6 +71,56 @@ X(旧:Twitter)で告知してゲーム感覚で利用してもらう
 
 
 ## 画面遷移図
-Figma：https://www.figma.com/file/gEFMyEx0QNwnjENitaVhOm/gift_request?type=design&node-id=0%3A1&mode=design&t=lq3JcScmWoDpdYl2-1
+[画面遷移図](https://www.figma.com/file/gEFMyEx0QNwnjENitaVhOm/gift_request?type=design&node-id=0%3A1&mode=design&t=lq3JcScmWoDpdYl2-1)
 
 ## ER図
+```mermaid
+erDiagram
+    Users {
+        int user_id PK
+        string name
+        string email
+        string crypted_password
+        string salt
+        string avatar
+        datetime created_at
+        datetime updated_at
+    }
+
+    Requests {
+        int id PK
+        int user_id FK
+        string name
+        datetime desired_date
+        text remarks
+        int style
+        string title
+        text quest
+        datetime created_at
+        datetime updated_at
+    }
+
+    Choices {
+        int id PK
+        int request_id FK
+        int number
+        text content
+        datetime created_at
+        datetime updated_at
+    }
+
+    Hints {
+        int id PK
+        int request_id FK
+        int number
+        text content
+        datetime created_at
+        datetime updated_at
+    }
+
+    USERS ||--o{ Requests : "posts"
+    USERS ||--o{ Requests : "1:n"
+    Requests ||--o| Choices : "1:n"
+    Requests ||--o| Hints : "1:n"
+
+```
