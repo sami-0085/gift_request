@@ -118,7 +118,6 @@ erDiagram
         datetime updated_at
     }
 
-    USERS ||--o{ Requests : "posts"
     USERS ||--o{ Requests : "1:n"
     Requests ||--o| Choices : "1:n"
     Requests ||--o| Hints : "1:n"
