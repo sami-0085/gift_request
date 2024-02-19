@@ -34,3 +34,10 @@
 !/app/assets/builds/.keep
 
 /node_modules
+
+# 環境変数
+.env
+
+/public/uploads
+
+/config/credentials.yml.enc
