@@ -74,5 +74,8 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"
+end
 
+group :production do
+  gem "pg", "1.3.5"
 end
