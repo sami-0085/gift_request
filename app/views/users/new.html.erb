@@ -1,0 +1,28 @@
+<div class="container mx-auto px-4">
+  <div class="max-w-md mx-auto my-10">
+    <h1 class="text-4xl font-bold mb-5 text-center">ユーザー登録</h1>
+    <%= form_with model: @user, class: "space-y-4" do |f| %>
+     <%= render 'shared/error_messages', object: f.object %>
+      <div>
+        <%= f.label :name, class: "block text-sm font-medium text-gray-700" %>
+        <%= f.text_field :name, class: "input input-bordered w-full max-w-xs" %>
+      </div>
+      <div>
+        <%= f.label :email, class: "block text-sm font-medium text-gray-700" %>
+        <%= f.email_field :email, class: "input input-bordered w-full max-w-xs" %>
+      </div>
+      <div>
+        <%= f.label :password, class: "block text-sm font-medium text-gray-700" %>
+        <%= f.password_field :password, class: "input input-bordered w-full max-w-xs" %>
+      </div>
+      <div>
+        <%= f.label :password_confirmation, class: "block text-sm font-medium text-gray-700" %>
+        <%= f.password_field :password_confirmation, class: "input input-bordered w-full max-w-xs" %>
+      </div>
+      <%= f.submit "登録", class: "btn btn-primary w-full" %>
+    <% end %>
+    <div class='text-center mt-4'>
+      <%= link_to 'ログイン', login_path, class: "link link-primary" %>
+    </div>
+  </div>
+</div>
