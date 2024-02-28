@@ -1,0 +1,16 @@
+<div class="navbar bg-base-200">
+  <div class="flex-1">
+    <%= link_to '/' do %>
+    <%= image_tag 'logo.webp', alt: 'logo_title', class: "h-14 w-auto max-w-full" %>
+    <% end %>
+  </div>
+  <div class="flex-none flex items-center">
+    <ul class="menu menu-horizontal px-1 flex items-center">
+      <li><%= link_to 'ログイン', login_path %></li>
+      <li><%= link_to '新規登録', new_user_path %></li>
+      <%= link_to '#' do %>
+      <%= image_tag 'icon_quest.svg', alt: 'quest', class: "h-14 w-auto max-w-full" %>
+      <% end %>
+    </ul>
+  </div>
+</div>

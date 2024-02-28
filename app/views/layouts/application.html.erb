@@ -11,8 +11,11 @@
   </head>
 
   <body>
+    <%= render 'shared/header' %>
     <%= render 'layouts/flash_messages' %>
     <%= yield %>
-    <%= debug(params) if Rails.env.development? %>
+    <dev>
+       <%= debug(params) if Rails.env.development? %>
+    </dev>
   </body>
 </html>
