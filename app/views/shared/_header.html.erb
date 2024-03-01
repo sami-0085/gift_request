@@ -1,32 +1,55 @@
-<div class="navbar bg-base-200">
-  <div class="flex-1">
-    <%= link_to '/' do %>
-    <%= image_tag 'logo.webp', alt: 'logo_title', class: "h-14 w-auto max-w-full" %>
-    <% end %>
+<header>
+  <div class="navbar bg-base-200">
+    <div class="flex-1 px-2">
+      <%= link_to '/' do %>
+      <%= image_tag 'logo.webp', alt: 'logo_title', class: "h-14 w-auto max-w-full" %>
+      <% end %>
+    </div>
+    
+    <div class="flex justify-end flex-1 px-2">
+      <ul class="menu menu-horizontal flex items-center">
+        <li>
+          <%= link_to '#' do %>
+          <%= image_tag 'create.svg', alt: 'create_quest', class: "h-9" %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to '#' do %>
+          <%= image_tag 'mypage.svg', alt: 'create_quest', class: "h-9" %>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+    <div class="dropdown dropdown-end">
+      <div tabindex="0" role="button" class="btn rounded-btn">
+        <%= image_tag 'menu.svg', alt: 'quest', class: "h-7" %>
+      </div>
+      <ul tabindex="0" class="menu dropdown-content z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+        <li>
+          <div class="flex items-center">
+            <%= image_tag 'create.svg', alt: 'create_quest', class: "h-4" %>
+            <%= link_to 'リクエスト作成', "#" %>
+          </div>
+        </li>
+        <li>
+          <div class="flex items-center">
+            <%= image_tag 'quest.svg', alt: 'quest', class: "h-4" %>
+            <%= link_to 'みんなのクエスト', "#" %>
+          </div>
+        </li>
+        <li>
+          <div class="flex items-center">
+            <i class="fa-regular fa-circle-user"></i>
+            <%= link_to 'マイページ', "#" %>
+          </div>
+        </li>
+        <li>
+          <div class="flex items-center">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            <%= link_to 'ログアウト', "#" %>
+          </div>
+        </li>
+      </ul>
+    </div>
   </div>
-  <div class="flex-none flex items-center">
-    <ul class="menu menu-horizontal px-1 flex items-center">
-      <li>
-        <%= link_to '#' do %>
-        <%= image_tag 'icon_quest.svg', alt: 'quest', class: "h-9" %>
-        <% end %>
-      </li>
-      <li>
-        <details>
-          <summary>
-            <%= image_tag 'menu.svg', alt: 'quest', class: "h-9" %>
-          </summary>
-          <ul class="p-2 bg-base-100 rounded-t-none">
-            <li><%= link_to 'リクエスト作成', "#" %></li>
-            <li><%= link_to 'みんなのクエスト', "#" %></li>
-            <li><%= link_to 'マイページ', "#" %></li>
-            <li><%= link_to 'ログアウト', "#" %></li>
-          </ul>
-        </details>
-      </li>
-      <li>
-        <div class="dropdown dropdown-end">
-      </li>
-    </ul>
-  </div>
-</div>
+</header>
