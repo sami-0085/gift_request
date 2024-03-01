@@ -11,16 +11,19 @@
     <script src="https://kit.fontawesome.com/952f5a5c87.js" crossorigin="anonymous"></script>
   </head>
 
-  <body>
+  <body class="flex flex-col min-h-screen">
     <% if logged_in? %>
       <%= render 'shared/header' %>
     <% else %>
       <%= render 'shared/before_login_header' %>
     <% end %>
     <%= render 'layouts/flash_messages' %>
-    <%= yield %>
-    <dev>
-       <%= debug(params) if Rails.env.development? %>
-    </dev>
+    <div class="flex-grow bg-green-50">
+      <%= yield %>
+      <dev>
+        <%= debug(params) if Rails.env.development? %>
+      </dev>
+    </div>
+    <%= render 'shared/footer' %>
   </body>
 </html>
