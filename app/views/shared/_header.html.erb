@@ -45,7 +45,7 @@
           <li>
             <div class="flex items-center">
               <i class="fa-solid fa-right-from-bracket"></i>
-              <%= link_to 'ログアウト', "#" %>
+              <%= link_to 'ログアウト', logout_path, data: { turbo_method: :delete } %>
             </div>
           </li>
         </ul>
