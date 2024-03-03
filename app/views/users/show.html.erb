@@ -1,0 +1,9 @@
+<h1>
+    マイページ
+</h1>
+<h3>ニックネーム:<%= @user.name %></h3>
+<h3>email:<%= @user.email %></h3>
+
+<% if @user.avatar.attached? %>
+  <%= image_tag @user.avatar, width: 200, class: "mb-2" %>
+<% end %>

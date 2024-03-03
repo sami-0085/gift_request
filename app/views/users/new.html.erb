@@ -19,6 +19,9 @@
         <%= f.label :password_confirmation, class: "block text-sm font-medium text-gray-700" %>
         <%= f.password_field :password_confirmation, class: "input input-bordered w-full max-w-xs" %>
       </div>
+      <span class="avatar mt-2">
+        <%= f.file_field :avatar %>
+      </span>
       <%= f.submit "登録", class: "btn btn-primary w-full" %>
     <% end %>
     <div class='text-center mt-4'>
