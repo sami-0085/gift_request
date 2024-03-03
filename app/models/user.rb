@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   authenticates_with_sorcery!
-  has_one_attached :avatar
+  has_one_attached :avatar do |attachable|
+  attachable.variant :display, resize_to_limit: [200, 200]
+end
 
   validates :password, length: { minimum: 3 }, if: -> { new_record? || changes[:crypted_password] }
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
