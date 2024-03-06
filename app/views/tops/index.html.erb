@@ -8,3 +8,8 @@
       <%= image_tag 'quest.svg', alt: 'quest', class: "h-9" %>
       <% end %>
       <%= image_tag 'menu.svg', alt: 'quest', class: "h-7" %>
+<h3>質問を入力してください</h3>
+<%= form_with(url: search_path, method: :get) do |form| %>
+  <%= form.text_field :text, size: 75 %>
+  <%= form.submit "回答" %>
+<% end %>

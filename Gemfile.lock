@@ -98,9 +98,16 @@ GEM
     debug (1.9.1)
       irb (~> 1.10)
       reline (>= 0.3.8)
+    dotenv (3.1.0)
+    dotenv-rails (3.1.0)
+      dotenv (= 3.1.0)
+      railties (>= 6.1)
     erubi (1.12.0)
+    event_stream_parser (1.0.0)
     faraday (2.9.0)
       faraday-net_http (>= 2.0, < 3.2)
+    faraday-multipart (1.0.4)
+      multipart-post (~> 2)
     faraday-net_http (3.1.0)
       net-http
     ffi (1.16.3)
@@ -139,6 +146,7 @@ GEM
     minitest (5.22.2)
     msgpack (1.7.2)
     multi_xml (0.6.0)
+    multipart-post (2.4.0)
     net-http (0.4.1)
       uri
     net-imap (0.4.10)
@@ -219,6 +227,10 @@ GEM
     reline (0.4.2)
       io-console (~> 0.5)
     rexml (3.2.6)
+    ruby-openai (6.3.1)
+      event_stream_parser (>= 0.3.0, < 2.0.0)
+      faraday (>= 1)
+      faraday-multipart (>= 1)
     ruby-vips (2.2.1)
       ffi (~> 1.12)
     rubyzip (2.3.2)
@@ -277,6 +289,7 @@ DEPENDENCIES
   capybara
   cssbundling-rails
   debug
+  dotenv-rails
   image_processing
   jbuilder
   jsbundling-rails
@@ -284,6 +297,7 @@ DEPENDENCIES
   pry-byebug
   puma (~> 5.0)
   rails (~> 7.0.8)
+  ruby-openai
   selenium-webdriver
   sorcery
   sprockets-rails
