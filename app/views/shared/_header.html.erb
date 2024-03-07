@@ -9,7 +9,7 @@
     <div class="flex justify-end flex-1 px-2">
       <ul class="menu menu-horizontal flex items-center hidden sm:flex">
         <li>
-          <%= link_to '#' do %>
+          <%= link_to new_request_path do %>
           <%= image_tag 'create.svg', alt: 'create_quest', class: "h-9" %>
           <% end %>
         </li>
@@ -27,7 +27,7 @@
           <li>
             <div class="flex items-center">
               <%= image_tag 'create.svg', alt: 'create_quest', class: "h-4" %>
-              <%= link_to 'リクエスト作成', "#" %>
+              <%= link_to 'リクエスト作成', new_request_path %>
             </div>
           </li>
           <li>

@@ -9,8 +9,7 @@ class RequestsController < ApplicationController
   def create
     @request = Request.new(request_params)
     @request.user = current_user
-    @query = @request.name
-    service = OpenaiQuestGenerationService.new(@query, @api_key)
+    service = OpenaiQuestGenerationService.new(@request.name, @api_key)
     response = service.call
 
     if response
