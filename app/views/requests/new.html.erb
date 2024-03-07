@@ -1,0 +1,20 @@
+<div class="container mx-auto px-4">
+  <div class="max-w-md mx-auto my-10">
+    <h1 class="text-4xl font-bold mb-5 text-center">リクエスト作成</h1>
+    <%= form_with model: @request, class: "space-y-4" do |f| %>
+      <div>
+        <%= f.label :name, "欲しいもの", class: "block text-sm font-medium text-gray-700" %>
+        <%= f.text_field :name, class: "input input-bordered w-full max-w-xs" %>
+      </div>
+      <div>
+        <%= f.label :desired_date, "欲しい日", class: "block text-sm font-medium text-gray-700" %>
+        <%= f.date_field :desired_date, class: "input input-bordered w-full max-w-xs" %>
+      </div>
+      <div>
+        <%= f.label :remarks, "備考", class: "block text-sm font-medium text-gray-700" %>
+        <%= f.text_area :remarks, class: "input input-bordered w-full max-w-xs" %>
+      </div>
+      <%= f.submit "登録", class: "btn btn-primary w-full" %>
+    <% end %>
+  </div>
+</div>

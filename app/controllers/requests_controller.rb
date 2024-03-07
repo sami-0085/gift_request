@@ -2,6 +2,14 @@ class RequestsController < ApplicationController
   skip_before_action :require_login
   before_action :set_token, :text_params, only: :search
 
+  def new
+    @request = Request.new
+  end
+
+  def create
+
+  end
+
   def search
     @client = OpenAI::Client.new(access_token: @api_key)
     # response = @client.chat(
