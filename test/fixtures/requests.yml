@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  name: MyString
+  desired_date: 2024-03-06 22:05:37
+  remarks: MyText
+  style: 1
+  title: MyString
+  quest: MyText
+
+two:
+  user: two
+  name: MyString
+  desired_date: 2024-03-06 22:05:37
+  remarks: MyText
+  style: 1
+  title: MyString
+  quest: MyText
