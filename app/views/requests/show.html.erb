@@ -1,0 +1,12 @@
+<h1>
+    リクエスト詳細画面
+</h1>
+<% if @request.quest.present? %>
+
+<h3>名前:<%= @request.name %></h3>
+<%= @request.user.name %></h3>
+<% quest_text = @request.quest %>
+  <% title = quest_text.match(/タイトル: (.+?)\n\n/)[1] rescue nil %>
+  <h3>タイトル</h3>
+  <p><%= title %></p>
+  <% end %>
