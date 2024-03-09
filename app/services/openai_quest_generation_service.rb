@@ -10,7 +10,7 @@ class OpenaiQuestGenerationService
       parameters: {
         model: "gpt-4",
         messages: [
-          { role: "system", content: "あなたは作詞家です" },
+          { role: "system", content: "You are a professional lyricist." },
           { role: "user", content: generate_prompt(@query) }
         ],
       }
@@ -22,18 +22,27 @@ class OpenaiQuestGenerationService
   private
 
   def generate_prompt(query)
-    "以下の条件で歌詞を出題してください。
+    "Please create lyrics based on the following conditions.
 
-    # 条件
-    テーマ: #{query}
-    歌詞にテーマの言葉#{query}は使わないでください。
-    テイスト: ラブソング
+    # Conditions
+    Theme: #{query}
+    Do not use the theme word #{query} in the lyrics.
+    Taste: Passion
+    Plese answer in Japanese.
     Output should be less than 300 tokens
 
-    # output
-    タイトル: 20文字以内
-    歌詞: 句読点で改行して下さい。
-    テーマのヒント:30文字以内で3つ、format:-ヒント1
-    テーマ: 3択、format:-選択肢1"
+    # Required Output
+    - タイトル: Please provide a title within 20 characters.
+    - 歌詞: Write the lyrics within 300 characters.
+    - テーマのヒント: Provide 3 hints related to the theme, each within 30 characters, formatted as follows:
+      - ヒント1:
+      - ヒント2:
+      - ヒント3:
+    - Theme choices: Provide 3 choices for the theme, one of which is the actual theme #{query}, formatted as follows:
+      - 選択肢1:
+      - 選択肢2:
+      - 選択肢3:
+
+    Please ensure all four components (Title, Lyrics, Theme hints, and Theme choices) are clearly included in your response."
   end
 end

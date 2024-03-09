@@ -1,0 +1,46 @@
+<h1>リクエスト詳細画面</h1>
+
+<div class="py-6 sm:py-8 lg:py-12">
+  <div class="mx-auto max-w-screen-xl px-4 md:px-8">
+    <div class="grid gap-8 md:grid-cols-2 lg:gap-12">
+      <div>
+        <div class="card w-auto bg-indigo-50  bg-base-100 shadow-xl">
+        <div class="card-body">
+          <h2 class="card-title"><%= @request.title %></h2>
+          <p><%= @request.quest %></p>
+        </div>
+        </div>
+      </div>
+
+      <div class="md:pt-6">
+        <p class="text-center font-bold text-indigo-500 md:text-left">欲しいもの</p>
+
+        <h1 class="mb-4 text-center text-2xl font-bold text-gray-800 sm:text-3xl md:mb-6 md:text-left">
+          <%= @request.name %>
+        </h1>
+
+        <p class="text-center font-bold text-indigo-500 md:text-left">欲しい日</p>
+        <p class="mb-6 text-center text-gray-500 sm:text-lg md:mb-6 md:text-left">
+          <%= @request.desired_date.present? ? @request.desired_date : '記入なし' %>
+        </p>
+
+        <p class="text-center font-bold text-indigo-500 md:text-left">備考</p>
+        <p class="mb-6 text-center text-gray-500 sm:text-lg md:mb-6 md:text-left">
+          <%= @request.remarks.present? ? @request.remarks : '記入なし' %>
+        </p>
+        <p class="mb-6 text-center text-gray-500 sm:text-md md:mb-6 md:text-right">
+          <%= @request.created_at.strftime('%Y-%m-%d %H:%M') %>
+        </p>
+          <div class="flex justify-center items-center flex-3 px-2 space-x-6">
+            <button class="btn btn-primary">Xで知らせる</button>
+            <%= link_to user_path(current_user) do %>
+              <%= image_tag 'mypage.svg', alt: 'create_quest', class: "flex items-center justify-center h-9 hover:bg-gray-400 rounded-md transition-colors duration-150" %>
+            <% end %>
+            <%= link_to "#" do %>
+              <%= image_tag 'delete.svg', alt: 'delete_quest', class: "flex items-center justify-center h-9 hover:bg-gray-400 rounded-md transition-colors duration-150" %>
+            <% end %>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>

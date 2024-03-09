@@ -1,10 +1,10 @@
 <div class="container mx-auto px-4">
   <div class="max-w-md mx-auto my-10">
     <h1 class="text-4xl font-bold mb-5 text-center">リクエスト作成</h1>
-    <%= form_with model: @request, class: "space-y-4" do |f| %>
+    <%= form_with model: @request, class: "flex flex-col space-y-4" do |f| %>
       <div>
         <%= f.label :name, "欲しいもの", class: "block text-sm font-medium text-gray-700" %>
-        <%= f.text_field :name, class: "input input-bordered w-full max-w-xs" %>
+        <%= f.text_field :name, class: "input input-bordered w-full max-w-xs", placeholder:'例：クマのぬいぐるみ', required: true %>
       </div>
       <div>
         <%= f.label :desired_date, "欲しい日", class: "block text-sm font-medium text-gray-700" %>
@@ -14,7 +14,7 @@
         <%= f.label :remarks, "備考", class: "block text-sm font-medium text-gray-700" %>
         <%= f.text_area :remarks, class: "input input-bordered w-full max-w-xs" %>
       </div>
-      <%= f.submit "登録", class: "btn btn-primary w-full" %>
+      <%= f.submit "作成", class: "btn btn-primary w-full" %>
     <% end %>
   </div>
 </div>
