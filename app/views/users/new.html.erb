@@ -5,19 +5,19 @@
      <%= render 'shared/error_messages', object: f.object %>
       <div>
         <%= f.label :name, class: "block text-sm font-medium text-gray-700" %>
-        <%= f.text_field :name, class: "input input-bordered w-full max-w-xs" %>
+        <%= f.text_field :name, class: "input input-bordered w-full max-w-xs", required: true %>
       </div>
       <div>
         <%= f.label :email, class: "block text-sm font-medium text-gray-700" %>
-        <%= f.email_field :email, class: "input input-bordered w-full max-w-xs" %>
+        <%= f.email_field :email, class: "input input-bordered w-full max-w-xs", required: true %>
       </div>
       <div>
         <%= f.label :password, class: "block text-sm font-medium text-gray-700" %>
-        <%= f.password_field :password, class: "input input-bordered w-full max-w-xs" %>
+        <%= f.password_field :password, class: "input input-bordered w-full max-w-xs", required: true %>
       </div>
       <div>
         <%= f.label :password_confirmation, class: "block text-sm font-medium text-gray-700" %>
-        <%= f.password_field :password_confirmation, class: "input input-bordered w-full max-w-xs" %>
+        <%= f.password_field :password_confirmation, class: "input input-bordered w-full max-w-xs", required: true %>
       </div>
       <span class="avatar mt-2">
         <%= f.file_field :avatar, accept: "image/jpeg,image/gif,image/png" %>
