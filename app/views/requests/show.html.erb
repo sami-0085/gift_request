@@ -28,6 +28,9 @@
         <p class="mb-6 text-center text-gray-500 sm:text-lg md:mb-6 md:text-left">
           <%= @request.remarks.present? ? @request.remarks : '記入なし' %>
         </p>
+        <p class="mb-6 text-center text-gray-500 sm:text-md md:mb-6 md:text-right">
+          <%= @request.created_at.strftime('%Y-%m-%d %H:%M') %>
+        </p>
           <div class="flex justify-center items-center flex-3 px-2 space-x-6">
             <button class="btn btn-primary">Xで知らせる</button>
             <%= link_to user_path(current_user) do %>
