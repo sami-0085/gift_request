@@ -10,17 +10,35 @@ class RequestsController < ApplicationController
     @request = current_user.requests.build(request_params)
     service = OpenaiQuestGenerationService.new(@request.name, @api_key)
     response = service.call
-
-    if response
-      @request.quest = response
+    # 抽出したデータを保存
+    match_quest = response.match(/歌詞:([\s\S]+?)テーマのヒント:/)&.[](1)
+    match_title = response.match(/タイトル:(.+?)\n/)&.[](1)
+    hints = {
+      1 => response.match(/ヒント1:(.+?)\n/)&.[](1),
+      2 => response.match(/ヒント2:(.+?)\n/)&.[](1),
+      3 => response.match(/ヒント3:(.+?)\n/)&.[](1)
+    }
+    match_choices = {
+      1 => response.match(/選択肢1:(.+?)\n/)&.[](1),
+      2 => response.match(/選択肢2:(.+?)\n/)&.[](1),
+      3 => response.match(/選択肢3:(.+)/m)&.[](1)
+    }
+    if match_quest
+      @request.quest = match_quest
+      @request.title = match_title if match_title
       if @request.save
-        # redirect_to root_path, notice: 'リクエストが正常に作成されました。'
+        # ヒントを保存
+        hints.each do |number, content|
+          @request.hints.create(number: number, content: content) if content
+        end
+        match_choices.each do |number, content|
+          @request.choices.create(number: number, content: content) if content
+        end
         redirect_to @request, notice: 'リクエストが正常に作成されました。'
       else
         render :new, status: :unprocessable_entity
       end
     else
-      # エラーメッセージを設定
       flash.now[:alert] = 'クエストの生成に失敗しました。'
       render :new, status: :unprocessable_entity
     end
