@@ -27,7 +27,7 @@ class OpenaiQuestGenerationService
     # Conditions
     Theme: #{query}
     Do not use the theme word #{query} in the lyrics.
-    Taste: Passion
+    Taste: longing
     Plese answer in Japanese.
     Output should be less than 300 tokens
 

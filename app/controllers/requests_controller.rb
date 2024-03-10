@@ -11,7 +11,7 @@ class RequestsController < ApplicationController
     service = OpenaiQuestGenerationService.new(@request.name, @api_key)
     response = service.call
     # 抽出したデータを保存
-    match_quest = response.match(/歌詞:([\s\S]+?)テーマのヒント:/)&.[](1)
+    match_quest = response.match(/歌詞:([\s\S]+?)- テーマのヒント:/)&.[](1)
     match_title = response.match(/タイトル:(.+?)\n/)&.[](1)
     hints = {
       1 => response.match(/ヒント1:(.+?)\n/)&.[](1),
