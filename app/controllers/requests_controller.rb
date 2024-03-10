@@ -1,6 +1,10 @@
 class RequestsController < ApplicationController
-  skip_before_action :require_login, only: [:index, :show]
-  before_action :set_token, :request_params, only: [:create]
+  skip_before_action :require_login, only: %i[index]
+  before_action :set_token, :request_params, only: %i[create]
+
+  def index
+    @requests = Request.all.includes(:user).order(created_at: :desc)
+  end
 
   def new
     @request = Request.new
@@ -11,7 +15,7 @@ class RequestsController < ApplicationController
     service = OpenaiQuestGenerationService.new(@request.name, @api_key)
     response = service.call
     # 抽出したデータを保存
-    match_quest = response.match(/歌詞:([\s\S]+?)テーマのヒント:/)&.[](1)
+    match_quest = response.match(/歌詞:([\s\S]+?)- テーマのヒント:/)&.[](1)
     match_title = response.match(/タイトル:(.+?)\n/)&.[](1)
     hints = {
       1 => response.match(/ヒント1:(.+?)\n/)&.[](1),
