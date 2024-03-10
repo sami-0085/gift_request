@@ -3,7 +3,7 @@ class RequestsController < ApplicationController
   before_action :set_token, :request_params, only: %i[create]
 
   def index
-
+    @requests = Request.all.includes(:user).order(created_at: :desc)
   end
 
   def new
