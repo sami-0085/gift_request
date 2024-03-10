@@ -1,6 +1,10 @@
 class RequestsController < ApplicationController
-  skip_before_action :require_login, only: [:index, :show]
-  before_action :set_token, :request_params, only: [:create]
+  skip_before_action :require_login, only: %i[index]
+  before_action :set_token, :request_params, only: %i[create]
+
+  def index
+
+  end
 
   def new
     @request = Request.new
