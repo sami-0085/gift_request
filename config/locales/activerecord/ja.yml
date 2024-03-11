@@ -2,9 +2,17 @@ ja:
   activerecord:
     models:
       user: ユーザー
+      request: リクエスト
     attributes:
       user:
         email: メールアドレス
         name: ニックネーム
         password: パスワード
         password_confirmation: パスワード確認
+      request:
+        name: 欲しいもの
+        desired_date: 欲しい日
+        remarks: 備考
+        style: スタイル
+        title: タイトル
+        quest: クエスト

@@ -7,6 +7,12 @@ ja:
     label:
       email: メールアドレス
       password: パスワード
+  defaults:
+    message:
+      updated: "%{item}を更新しました"
+      not_updated: "%{item}を更新できませんでした"
+      deleted: "%{item}を削除しました"
+      delete_confirm: '削除しますか？'
   user_sessions:
     new:
       title: ログイン
@@ -17,3 +23,6 @@ ja:
   views:
     pagination:
       truncate: "..."
+  request:
+    edit:
+      title: クエスト編集

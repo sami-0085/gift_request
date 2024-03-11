@@ -43,12 +43,14 @@
 
   <% if @user_requests.present? %>
     <div class="flex flex-wrap -mx-2">
-      <%= render partial: 'requests/request', collection: @user.requests, as: :user_request %>
+      <%= render partial: 'requests/request', collection: @user_requests, as: :user_request %>
     </div>
   <% else %>
     <p>クエストはありません</p>
   <% end %>
 </div>
   <%= paginate @user_requests %>
+  <%= @user_requests.size %>
+  <%= @user_requests.total_pages %>
 
 

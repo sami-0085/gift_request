@@ -8,5 +8,4 @@ Rails.application.routes.draw do
   delete 'logout', to: 'user_sessions#destroy'
   resources :users, only: %i[new create show]
   resources :requests
-  get 'search', to: 'requests#search'
 end
