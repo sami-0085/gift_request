@@ -1,6 +1,8 @@
 class RequestsController < ApplicationController
   skip_before_action :require_login, only: %i[index show]
-  before_action :set_token, :request_params, only: %i[create]
+  before_action :set_token, only: %i[create]
+  before_action :request_params, only: %i[create edit]
+  before_action :set_request, only: %i[edit update destroy]
 
   def index
     @user_requests = Request.all.includes(:user).order(created_at: :desc).page(params[:page])
@@ -52,7 +54,27 @@ class RequestsController < ApplicationController
     @user_request = Request.find(params[:id])
   end
 
+  def edit; end
+
+  def update
+    if @user_request.update(request_params)
+      redirect_to @user_request, notice: '編集しました'
+    else
+      flash.now[:alert] = '編集に失敗しました'
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @user_request.destroy!
+    redirect_to requests_path, notice: 'クエストを削除しました', status: :see_other
+  end
+
   private
+
+  def set_request
+    @user_request = current_user.requests.find(params[:id])
+  end
 
   def request_params
     params.require(:request).permit(:name, :remarks, :desired_date)
