@@ -4,8 +4,8 @@
     <div class="grid gap-8 md:grid-cols-2 lg:gap-12">
       <div class="card w-auto bg-indigo-50  bg-base-100 shadow-md">
         <div class="card-body">
-          <h2 class="card-title mt-2"><%= @request.title %></h2>
-          <p class="mt-4 text-md lg:text-lg"><%= @request.quest %></p>
+          <h2 class="card-title mt-2"><%= @user_request.title %></h2>
+          <p class="mt-4 text-md lg:text-lg"><%= @user_request.quest %></p>
         </div>
       </div>
 
@@ -13,19 +13,19 @@
         <p class="mb-1 text-center font-bold text-indigo-500 md:text-left">欲しいもの</p>
 
         <h1 class="mb-4 text-center text-2xl font-bold text-gray-800 sm:text-3xl md:mb-4 md:text-left">
-          <%= @request.name %>
+          <%= @user_request.name %>
         </h1>
 
         <p class="text-center font-bold text-indigo-500 md:text-left">欲しい日</p>
         <p class="mb-4 text-center text-gray-500 sm:text-lg md:mb-4 md:text-left">
-          <%= @request.desired_date.present? ? l(@request.desired_date, format: :short) : '記入なし' %>
+          <%= @user_request.desired_date.present? ? l(@user_request.desired_date, format: :short) : '記入なし' %>
         </p>
 
         <p class="text-center font-bold text-indigo-500 md:text-left">備考</p>
         <p class="mb-4 text-center text-gray-500 sm:text-lg md:mb-4 md:text-left">
-          <%= @request.remarks.present? ? @request.remarks : '記入なし' %>
+          <%= @user_request.remarks.present? ? @user_request.remarks : '記入なし' %>
         </p>
-        <p class="mb-4 text-center text-gray-500 sm:text-md md:mb-4 md:text-right">作成日: <%= l @request.created_at %></p>
+        <p class="mb-4 text-center text-gray-500 sm:text-md md:mb-4 md:text-right">作成日: <%= l @user_request.created_at %></p>
           <div class="flex justify-center items-center flex-3 px-2 space-x-6">
             <button class="btn btn-neutral">Xで知らせる</button>
             <%= link_to user_path(current_user) do %>

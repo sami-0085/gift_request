@@ -19,6 +19,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @user_requests = @user.requests.order(created_at: :desc).page(params[:page])
   end
 
   private

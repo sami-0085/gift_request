@@ -1,18 +1,18 @@
 class RequestsController < ApplicationController
-  skip_before_action :require_login, only: %i[index]
+  skip_before_action :require_login, only: %i[index show]
   before_action :set_token, :request_params, only: %i[create]
 
   def index
-    @requests = Request.all.includes(:user).order(created_at: :desc)
+    @user_requests = Request.all.includes(:user).order(created_at: :desc).page(params[:page])
   end
 
   def new
-    @request = Request.new
+    @user_request = Request.new
   end
 
   def create
-    @request = current_user.requests.build(request_params)
-    service = OpenaiQuestGenerationService.new(@request.name, @api_key)
+    @user_request = current_user.requests.build(request_params)
+    service = OpenaiQuestGenerationService.new(@user_request.name, @api_key)
     response = service.call
     # 抽出したデータを保存
     match_quest = response.match(/歌詞:([\s\S]+?)- テーマのヒント:/)&.[](1)
@@ -28,17 +28,17 @@ class RequestsController < ApplicationController
       3 => response.match(/選択肢3:(.+)/m)&.[](1)
     }
     if match_quest
-      @request.quest = match_quest
-      @request.title = match_title if match_title
-      if @request.save
+      @user_request.quest = match_quest
+      @user_request.title = match_title if match_title
+      if @user_request.save
         # ヒントを保存
         hints.each do |number, content|
-          @request.hints.create(number: number, content: content) if content
+          @user_request.hints.create(number: number, content: content) if content
         end
         match_choices.each do |number, content|
-          @request.choices.create(number: number, content: content) if content
+          @user_request.choices.create(number: number, content: content) if content
         end
-        redirect_to @request, notice: 'リクエストが正常に作成されました。'
+        redirect_to @user_request, notice: 'クエストが作成されました。'
       else
         render :new, status: :unprocessable_entity
       end
@@ -49,7 +49,7 @@ class RequestsController < ApplicationController
   end
 
   def show
-    @request = Request.find(params[:id])
+    @user_request = Request.find(params[:id])
   end
 
   private
