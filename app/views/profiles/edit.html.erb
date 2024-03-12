@@ -1,0 +1,49 @@
+<div class="container mx-auto px-4">
+  <div class="max-w-md mx-auto my-10">
+    <h1 class="text-4xl font-bold mb-5 text-center">編集</h1>
+    <%= form_with model: @user, url: profile_path, class: "space-y-4" do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+      <div>
+        <%= f.label :name, class: "block text-sm font-medium text-gray-700" %>
+        <%= f.text_field :name, class: "input input-bordered w-full max-w-xs", required: true %>
+      </div>
+      <div>
+        <%= f.label :email, class: "block text-sm font-medium text-gray-700" %>
+        <%= f.email_field :email, class: "input input-bordered w-full max-w-xs", required: true %>
+      </div>
+      <!------ 添付画像のプレビューを表示 ------>
+      <div id="avatar" >
+        <img id="avatar_preview" class="mb-3" width="100">
+      </div>
+      <!------ 現在DBに登録(保存)されている画像を表示 ------>
+      <div class="avatar mt-2">
+        <%= f.label :avatar, '画像(5MBまで)', class: "block text-sm font-medium text-gray-700" %><br>
+        <%= f.file_field :avatar, onchange: "avatarImage(this);", accept: "image/jpeg,image/gif,image/png", class: "mb-3" %>
+
+        
+        <div class="rounded-full shadow-xl mx-auto mt-16 h-40 w-40 bg-cover bg-center">
+          <% if current_user.avatar.attached? %>
+            <%= image_tag @user.avatar.variant(:display), size: '100x100', class: 'rounded-full' %>
+          <% else %>
+            <div class="flex items-center justify-center overflow-hidden rounded-full bg-gray-200 p-2">
+              <%= image_tag 'avatar.svg', alt: 'アバター' %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+
+      <%= f.submit class: "btn btn-primary w-full" %>
+    <% end %>
+  </div>
+</div>
+
+<!------ プレビュー表示用の JavaScript ------->
+<script>
+  function avatarImage(obj){
+      var fileReader = new FileReader();
+      fileReader.onload = (function() {
+        document.getElementById('avatar_preview').src = fileReader.result;
+      });
+      fileReader.readAsDataURL(obj.files[0]);
+  }
+</script>

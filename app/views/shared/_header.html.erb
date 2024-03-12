@@ -14,7 +14,7 @@
           <% end %>
         </li>
         <li>
-          <%= link_to user_path(current_user) do %>
+          <%= link_to profile_path do %>
           <%= image_tag 'mypage.svg', alt: 'create_quest', class: "h-9" %>
           <% end %>
         </li>
@@ -39,7 +39,7 @@
           <li>
             <div class="flex items-center">
               <i class="fa-regular fa-circle-user"></i>
-              <%= link_to 'マイページ', user_path(current_user) %>
+              <%= link_to 'マイページ', profile_path %>
             </div>
           </li>
           <li>

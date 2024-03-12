@@ -32,7 +32,7 @@ class OpenaiQuestGenerationService
     Output should be less than 300 tokens
 
     # Required Output
-    - タイトル: Please provide a title within 20 characters.
+    - タイトル: Please provide a title within 20 characters, enclosed in quotation marks (「」).
     - 歌詞: Write the lyrics within 300 characters.
     - テーマのヒント: Provide 3 hints related to the theme, each within 30 characters, formatted as follows:
       - ヒント1:
