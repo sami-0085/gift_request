@@ -41,8 +41,6 @@ class OpenaiQuestGenerationService
     - Theme choices: Provide 3 choices for the theme, one of which is the actual theme #{query}, formatted as follows:
       - 選択肢1:
       - 選択肢2:
-      - 選択肢3:
-
-    Please ensure all four components (Title, Lyrics, Theme hints, and Theme choices) are clearly included in your response."
+      - 選択肢3:"
   end
 end
