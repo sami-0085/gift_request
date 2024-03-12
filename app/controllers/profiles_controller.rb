@@ -9,11 +9,12 @@ class ProfilesController < ApplicationController
   def edit;end
 
   def update
+    @user.avatar.attach(params[:user][:avatar]) if @user.avatar.blank?
     if @user.update(user_params)
       redirect_to profile_path, notice: t('defaults.message.updated', item: User.model_name.human)
     else
       flash.now['alert'] = t('defaults.message.not_updated', item: User.model_name.human)
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 
@@ -24,6 +25,6 @@ class ProfilesController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name, :email, :avatar, :avatar_cache)
+    params.require(:user).permit(:name, :email, :avatar)
   end
 end
