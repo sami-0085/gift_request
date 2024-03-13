@@ -1,4 +1,10 @@
 ja:
+  defaults:
+    message:
+      updated: "%{item}を更新しました"
+      not_updated: "%{item}を更新できませんでした"
+      deleted: "%{item}を削除しました"
+      delete_confirm: '削除しますか？'
   helpers:
     submit:
       create: 登録
@@ -13,16 +19,15 @@ ja:
     request: リクエスト
     request_index: みんなのクエスト
     profile: プロフィール
-  defaults:
-    message:
-      updated: "%{item}を更新しました"
-      not_updated: "%{item}を更新できませんでした"
-      deleted: "%{item}を削除しました"
-      delete_confirm: '削除しますか？'
+  views:
+    pagination:
+      truncate: "..."
   user_sessions:
     new:
       title: ログイン
       login: ログイン
+      to_register_page: 登録ページへ
+      password_forget: パスワードをお忘れの方はこちら
     create:
       success: ログインしました
       failure: ログインに失敗しました
@@ -35,9 +40,15 @@ ja:
     create:
       success: ユーザー登録が完了しました
       failure: ユーザー登録に失敗しました
-  views:
-    pagination:
-      truncate: "..."
-  request:
+  requests:
+    index:
+      title: みんなのクエスト
+    new:
+      title: リクエスト作成
+    show:
+      title: リクエスト詳細
+  profiles:
+    show:
+      title: マイページ
     edit:
-      title: クエスト編集
+      title: プロフィール編集
