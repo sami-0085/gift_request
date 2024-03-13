@@ -1,3 +1,5 @@
+<% content_for(:title, t('.title')) %>
+
 <h1>リクエスト詳細画面</h1>
 
   <div class="w-5/6 mx-auto max-w-screen-xl py-6 md:px-8">
@@ -32,7 +34,7 @@
               <%= image_tag 'mypage.svg', alt: 'create_quest', class: "flex items-center justify-center h-9 hover:bg-gray-400 rounded-md transition-colors duration-150" %>
             <% end %>
             <% if @user_request.user_id == current_user.id %>
-              <%= link_to request_path(user_request), data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか？'} do %>
+              <%= link_to request_path(@user_request), data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか？'} do %>
               <%= image_tag 'delete.svg', alt: 'delete_quest', class: "flex items-center justify-center h-9 hover:bg-gray-400 rounded-md transition-colors duration-150" %>
             <% end %>
             <% end %>
