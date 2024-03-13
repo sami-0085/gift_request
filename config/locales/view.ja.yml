@@ -52,8 +52,3 @@ ja:
       title: マイページ
     edit:
       title: プロフィール編集
-  password_resets:
-    new:
-      title: パスワードリセット
-    edit:
-      title: パスワードリセット
