@@ -7,6 +7,12 @@ ja:
     label:
       email: メールアドレス
       password: パスワード
+  header:
+    login: ログイン
+    logout: ログアウト
+    request: リクエスト
+    request_index: みんなのクエスト
+    profile: プロフィール
   defaults:
     message:
       updated: "%{item}を更新しました"
@@ -17,9 +23,18 @@ ja:
     new:
       title: ログイン
       login: ログイン
+    create:
+      success: ログインしました
+      failure: ログインに失敗しました
+    destroy:
+      success: ログアウトしました
   users:
     new:
       title: ユーザー登録
+      to_login_page: ログインページへ
+    create:
+      success: ユーザー登録が完了しました
+      failure: ユーザー登録に失敗しました
   views:
     pagination:
       truncate: "..."
