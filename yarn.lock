@@ -311,7 +311,7 @@ caniuse-lite@^1.0.30001587, caniuse-lite@^1.0.30001591:
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001597.tgz#8be94a8c1d679de23b22fbd944232aa1321639e6"
   integrity sha512-7LjJvmQU6Sj7bL0j5b5WY/3n7utXUJvAe1lxhsHDbLmwX9mdL86Yjtr+5SRCyf8qME4M7pU2hswj0FpyBVCv9w==
 
-"chokidar@>=3.0.0 <4.0.0", chokidar@^3.5.3:
+chokidar@^3.5.3:
   version "3.6.0"
   resolved "https://registry.yarnpkg.com/chokidar/-/chokidar-3.6.0.tgz#197c6cc669ef2a8dc5e7b4d97ee4e092c3eb0d5b"
   integrity sha512-7VT13fmjotKpGipCW9JEQAusEPE+Ei8nl6/g4FBAmIm0GOOLMua9NDDo/DWp0ZAxCr3cPq5ZpBqmPAQgDda2Pw==
@@ -370,7 +370,7 @@ culori@^3:
   resolved "https://registry.yarnpkg.com/culori/-/culori-3.3.0.tgz#e33530adbd124d53bd6550394397e695eaaed739"
   integrity sha512-pHJg+jbuFsCjz9iclQBqyL3B2HLCBF71BwVNujUYEvCeQMvV97R59MNK3R2+jgJ3a1fcZgI9B3vYgz8lzr/BFQ==
 
-daisyui@^4.7.2:
+daisyui@^4.7.3:
   version "4.7.3"
   resolved "https://registry.yarnpkg.com/daisyui/-/daisyui-4.7.3.tgz#2d75b71d1c52f643914dea9b12930acc51ed9f49"
   integrity sha512-R8jUpBMAUm4rSyxzGa9QqFdJTkzREtb1QahXdDoOfElGiF4VbSuu5bfqQoOro1kkSagPy+aTKu5WtSSXmH3u3g==
@@ -396,9 +396,9 @@ eastasianwidth@^0.2.0:
   integrity sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==
 
 electron-to-chromium@^1.4.668:
-  version "1.4.701"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.701.tgz#7335e5761331774b4dea54cd24a1b84861d45cdf"
-  integrity sha512-K3WPQ36bUOtXg/1+69bFlFOvdSm0/0bGqmsfPDLRXLanoKXdA+pIWuf/VbA9b+2CwBFuONgl4NEz4OEm+OJOKA==
+  version "1.4.705"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.705.tgz#ef4f912620bd7c9555a20554ffc568184c0ddceb"
+  integrity sha512-LKqhpwJCLhYId2VVwEzFXWrqQI5n5zBppz1W9ehhTlfYU8CUUW6kClbN8LHF/v7flMgRdETS772nqywJ+ckVAw==
 
 emoji-regex@^8.0.0:
   version "8.0.0"
@@ -528,11 +528,6 @@ hasown@^2.0.0:
   integrity sha512-0hJU9SCPvmMzIBdZFqNPXWa6dqh7WdH0cII9y+CyS8rG3nL48Bclra9HmKhVVUHyPWNH5Y7xDwAB7bfgSjkUMQ==
   dependencies:
     function-bind "^1.1.2"
-
-immutable@^4.0.0:
-  version "4.3.5"
-  resolved "https://registry.yarnpkg.com/immutable/-/immutable-4.3.5.tgz#f8b436e66d59f99760dc577f5c99a4fd2a5cc5a0"
-  integrity sha512-8eabxkth9gZatlwl5TBuJnCsoTADlL6ftEr7A4qgdaTsPyreilDSnUk57SO+jfKcNtxPa22U5KK6DSeAYhpBJw==
 
 is-binary-path@~2.1.0:
   version "2.1.0"
@@ -743,9 +738,9 @@ postcss-nested@^6.0.1:
     postcss-selector-parser "^6.0.11"
 
 postcss-selector-parser@^6.0.11:
-  version "6.0.15"
-  resolved "https://registry.yarnpkg.com/postcss-selector-parser/-/postcss-selector-parser-6.0.15.tgz#11cc2b21eebc0b99ea374ffb9887174855a01535"
-  integrity sha512-rEYkQOMUCEMhsKbK66tbEU9QVIxbhN18YiniAwA7XQYTVBqrBy+P2p5JcdqsHgKM2zWylp8d7J6eszocfds5Sw==
+  version "6.0.16"
+  resolved "https://registry.yarnpkg.com/postcss-selector-parser/-/postcss-selector-parser-6.0.16.tgz#3b88b9f5c5abd989ef4e2fc9ec8eedd34b20fb04"
+  integrity sha512-A0RVJrX+IUkVZbW3ClroRWurercFhieevHB38sr2+l9eUClMqome3LmEmnhlNy+5Mr2EYN6B2Kaw9wYdd+VHiw==
   dependencies:
     cssesc "^3.0.0"
     util-deprecate "^1.0.2"
@@ -804,15 +799,6 @@ run-parallel@^1.1.9:
   dependencies:
     queue-microtask "^1.2.2"
 
-sass@^1.71.0:
-  version "1.71.1"
-  resolved "https://registry.yarnpkg.com/sass/-/sass-1.71.1.tgz#dfb09c63ce63f89353777bbd4a88c0a38386ee54"
-  integrity sha512-wovtnV2PxzteLlfNzbgm1tFXPLoZILYAMJtvoXXkD7/+1uP41eKkIt1ypWq5/q2uT94qHjXehEYfmjKOvjL9sg==
-  dependencies:
-    chokidar ">=3.0.0 <4.0.0"
-    immutable "^4.0.0"
-    source-map-js ">=0.6.2 <2.0.0"
-
 shebang-command@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/shebang-command/-/shebang-command-2.0.0.tgz#ccd0af4f8835fbdc265b82461aaf0c36663f34ea"
@@ -830,7 +816,7 @@ signal-exit@^4.0.1:
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-4.1.0.tgz#952188c1cbd546070e2dd20d0f41c0ae0530cb04"
   integrity sha512-bzyZ1e88w9O1iNJbKnOlvYTrWPDl46O1bG0D3XInv+9tkPrxrN8jUUTiFlDkkmKWgn1M6CfIA13SuGqOa9Korw==
 
-"source-map-js@>=0.6.2 <2.0.0", source-map-js@^1.0.2:
+source-map-js@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/source-map-js/-/source-map-js-1.0.2.tgz#adbc361d9c62df380125e7f161f71c826f1e490c"
   integrity sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==
