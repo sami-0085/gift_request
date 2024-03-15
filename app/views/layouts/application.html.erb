@@ -11,13 +11,13 @@
     <script src="https://kit.fontawesome.com/952f5a5c87.js" crossorigin="anonymous"></script>
   </head>
 
-  <body class="flex flex-col min-h-screen">
+  <body class="flex flex-col min-h-screen bg-gradient-to-r from-green-200 to-indigo-200">
     <% if logged_in? %>
       <%= render 'shared/header' %>
     <% else %>
       <%= render 'shared/before_login_header' %>
     <% end %>
-    <div class="flex-grow bg-green-50">
+    <div class="flex-grow">
       <%= render 'layouts/flash_messages' %>
         <%= yield %>
         <dev>
