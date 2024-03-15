@@ -1,5 +1,5 @@
 <header>
-  <div class="navbar bg-base-200">
+  <div class="navbar">
     <div class="flex-1 px-2">
       <%= link_to '/' do %>
       <%= image_tag 'headerlogo.png', alt: 'logo_title', class: "h-14 w-auto max-w-full" %>
@@ -20,8 +20,8 @@
         </li>
       </ul>
       <div class="dropdown dropdown-end">
-        <div tabindex="0" role="button" class="btn rounded-btn">
-          <%= image_tag 'menu.svg', alt: 'quest', class: "h-7" %>
+        <div tabindex="0" role="button" class="btn btn-ghost">
+          <%= image_tag 'menu.svg', alt: 'menu', class: "h-7" %>
         </div>
         <ul tabindex="0" class="menu dropdown-content z-[1] p-2 shadow bg-base-100 rounded-box w-52">
           <li>

@@ -1,8 +1,15 @@
 <% content_for(:title, t('.title')) %>
 
-<h1 class="text-3xl font-bold underline">
-    ギフトリクエストートップページ (^^)
-</h1>
-<button type="button" class="bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 ...">
-  Hover me
-</button>
+<div class="hero min-h-screen bg-white rounded-b-[240px]">
+  <div class="hero-content flex-col lg:flex-row">
+    <div>
+      <div class="max-w-md">
+        <%= image_tag 'logo.png', alt: 'gift_request_logo' %>
+      </div>
+      <button class="btn btn-primary">さっそく、始める</button>
+    </div>
+    <div class="max-w-md">
+      <%= image_tag 'bearbox.png', alt: 'bear&giftbox' %>
+    </div>
+  </div>
+</div>
