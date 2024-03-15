@@ -37,6 +37,7 @@
 
 # 環境変数
 /.env
+/vendor/bundle
 
 /public/uploads
 config/settings.local.yml
