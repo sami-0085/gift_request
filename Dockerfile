@@ -17,16 +17,16 @@ RUN curl -sL https://deb.nodesource.com/setup_${NODE_VERSION}.x | bash - \
 # アプリケーションディレクトリの設定
 RUN mkdir /app
 WORKDIR /app
-
-# Bundlerのインストール
 RUN gem install bundler
 
-# Gemfileのコピーとgemのインストール
-COPY Gemfile Gemfile.lock /app/
+# ローカルのGemfileをコンテナへコピー
+COPY Gemfile /app/Gemfile
+COPY Gemfile.lock /app/Gemfile.lock
+COPY yarn.lock /app/yarn.lock
+
+# Gemfileのgemのインストール
 RUN bundle install
 
-# Yarnの依存関係のコピーとインストール
-COPY package.json yarn.lock /app/
 RUN yarn install
 
 # ソースコードをコンテナへコピー
