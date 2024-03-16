@@ -26,7 +26,7 @@ module ApplicationHelper
   end
 
   def page_title(title = '')
-    base_title = 'GIFT QUEST APP'
+    base_title = 'GIFT REQUEST'
     title.present? ? "#{title} | #{base_title}" : base_title
   end
 end
