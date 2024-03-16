@@ -26,6 +26,7 @@ COPY yarn.lock /app/yarn.lock
 
 # Gemfile に記載されているgem(Rails)をインストール
 RUN bundle install
+# Yarnの依存関係のコピーとインストール
 RUN yarn install
 # ソースコードをコンテナへコピー
 COPY . /app
