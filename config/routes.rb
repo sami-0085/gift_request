@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'quests/show'
   root 'tops#index'
   get 'login', to: 'user_sessions#new'
   post 'login', to: 'user_sessions#create'
@@ -7,5 +8,11 @@ Rails.application.routes.draw do
   resources :users, only: %i[new create]
   resource :profile, only: %i[show edit update]
   resources :requests
+  resources :quests, only: [:show] do
+    member do
+      get :choose
+      post :answer
+    end
+  end
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
 end
