@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'quests/show'
   root 'tops#index'
   get 'login', to: 'user_sessions#new'
   post 'login', to: 'user_sessions#create'

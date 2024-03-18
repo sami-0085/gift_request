@@ -1,2 +1,39 @@
-<h1>Quests#show</h1>
-<p>Find me in app/views/quests/show.html.erb</p>
+<div class="my-10 mx-auto w-11/12 sm:w-6/5 max-w-5xl">
+
+  <div class="card w-full mx-auto bg-base-100 shadow-xl">
+    <figure class="px-10 pt-10">
+      <img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" class="rounded-xl" />
+    </figure>
+    <div class="card-body items-center text-left">
+      <h2 class="card-title">Shoes!</h2>
+      <p>If a dog chews shoes whose shoes does he choose?</p>
+      <div class="card-actions">
+        <button class="btn btn-primary">Buy Now</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card mx-2 md:w-full bg-base-100 image-full shadow-xl">
+    <figure><%= image_tag 'coffe.webp', alt: '喫茶店' %></figure>
+    <div class="card-body">
+      <h2 class="card-title justify-center">イントロダクション</h2>
+      <p class="mt-4 sm:text-xl">喫茶店の窓際、柔らかな陽光がテーブルを照らしている。<br>
+      私と<%= @quest.user.name %>は、お気に入りのコーヒーショップで午後のひと時を楽しんでいた。
+      私たちの間には、会話が途切れることなく、温かいコーヒーのカップが並んでいる。<br>
+      何気ない日常が穏やかに過ぎていく。
+      しかし、その平和なひと時は、突然の出来事によって少しだけ変わり始めた。<br>
+      <%= @quest.user.name %>が席を立っていた時に、側を通りかかった見知らぬ客が、
+      うっかり<%= @quest.user.name %>のノートを落としてしまったのだ。
+      私は慌ててノートを拾い上げた。その時、うっかりとページが開いてしまい、
+      ノートの中身が目に飛び込んできた。そこには、<%= @quest.user.name %>が綴った詩が記されていた---
+      </p>
+  
+      <div class="card-actions justify-center">
+        <%= link_to '次へ進む', "#", class: "btn btn-primary" %>
+      </div>
+      <h2 class="card-title mt-2"><%= @quest.title %></h2>
+      <p class="mt-4 text-md lg:text-lg"><%= @quest.quest %></p>
+    </div>
+  </div>
+  <p class="text-sm mx-2">このストーリーはフィクションです</p>
+</div>

@@ -3,7 +3,7 @@ class ProfilesController < ApplicationController
 
   def show
     @user_requests = current_user.requests.order(created_at: :desc).page(params[:page])
-    logger.debug @user_requests.inspect
+    #logger.debug @user_requests.inspect
   end
 
   def edit;end
