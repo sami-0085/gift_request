@@ -1,0 +1,25 @@
+<div class="my-10 mx-auto w-11/12 sm:w-6/5 max-w-5xl">
+
+  <div class="card w-full mx-auto bg-base-100 shadow-xl">
+    <figure class="px-10 pt-10">
+      <%= image_tag 'note.png', alt: 'Note', class: 'rounded-xl' %>
+    </figure>
+    <div class="card-body items-center text-left">
+      <h2 class="card-title"><%= @quest.title %></h2>
+      <p><%= @quest.quest %></p>
+    </div>
+  </div>
+
+  <div class="card mx-2 md:w-full bg-base-100 image-full shadow-xl">
+    <figure><%= image_tag 'coffe.webp', alt: '喫茶店' %></figure>
+    <div class="card-body">
+      <h2 class="card-title justify-center">~story2~<%= @quest.user.name %>の詩</h2>
+      <p class="mt-4 sm:text-xl">詩には<%= @quest.user.name %>の心の奥深くに秘められた想いが、繊細な言葉選びとリズムで表現されている。その深い感情の波が、私にはっきりと伝わってきたー</p>
+  
+      <div class="card-actions justify-center">
+        <%= link_to '次へ進む', choice_quest_path(@quest), class: "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+  <p class="text-sm mx-2">このストーリーはフィクションです</p>
+</div>

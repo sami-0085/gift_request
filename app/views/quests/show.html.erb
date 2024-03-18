@@ -1,22 +1,9 @@
 <div class="my-10 mx-auto w-11/12 sm:w-6/5 max-w-5xl">
 
-  <div class="card w-full mx-auto bg-base-100 shadow-xl">
-    <figure class="px-10 pt-10">
-      <img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" class="rounded-xl" />
-    </figure>
-    <div class="card-body items-center text-left">
-      <h2 class="card-title">Shoes!</h2>
-      <p>If a dog chews shoes whose shoes does he choose?</p>
-      <div class="card-actions">
-        <button class="btn btn-primary">Buy Now</button>
-      </div>
-    </div>
-  </div>
-
   <div class="card mx-2 md:w-full bg-base-100 image-full shadow-xl">
     <figure><%= image_tag 'coffe.webp', alt: '喫茶店' %></figure>
     <div class="card-body">
-      <h2 class="card-title justify-center">イントロダクション</h2>
+      <h2 class="card-title justify-center">~story1~イントロダクション</h2>
       <p class="mt-4 sm:text-xl">喫茶店の窓際、柔らかな陽光がテーブルを照らしている。<br>
       私と<%= @quest.user.name %>は、お気に入りのコーヒーショップで午後のひと時を楽しんでいた。
       私たちの間には、会話が途切れることなく、温かいコーヒーのカップが並んでいる。<br>
@@ -29,10 +16,8 @@
       </p>
   
       <div class="card-actions justify-center">
-        <%= link_to '次へ進む', "#", class: "btn btn-primary" %>
+        <%= link_to '次へ進む', choice_quest_path(@quest), class: "btn btn-primary" %>
       </div>
-      <h2 class="card-title mt-2"><%= @quest.title %></h2>
-      <p class="mt-4 text-md lg:text-lg"><%= @quest.quest %></p>
     </div>
   </div>
   <p class="text-sm mx-2">このストーリーはフィクションです</p>

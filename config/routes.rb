@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :requests
   resources :quests, only: [:show] do
     member do
-      get :choose
+      get :choice
       post :answer
     end
   end
