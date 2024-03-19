@@ -2,6 +2,14 @@
 <html>
   <head>
     <title><%= page_title(yield(:title)) %></title>
+    <meta name="description" content="<%= full_description(yield(:description)) %>" />
+    <meta property="og:url" content="https://gift-request.onrender.com" />
+    <meta property="og:title" content="<%= page_title(yield(:og_title)) %>" />
+    <meta property="og:description" content="こんなプレゼント欲しいな、をゲーム感覚で友達に伝えられる、プレゼント伝達サービスです" />
+    <meta property="og:image" content="<%= image_url "og.png" %>" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@sammy_study" />
+
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
