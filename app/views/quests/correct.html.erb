@@ -1,0 +1,25 @@
+<div class="my-10 mx-auto w-11/12 sm:w-6/5 max-w-5xl">
+  <div class="card w-full bg-base-100 image-full shadow-xl">
+    <figure><%= image_tag 'coffe.webp', alt: '喫茶店' %></figure>
+    <div class="card-body">
+      <h2 class="card-title justify-center">~Last story~</h2>
+        <div class="mt-4 sm:text-xl">
+        私はノートを閉じ、<%= @quest.user.name %>が戻ってくるのを静かに待った。心の中で、<%= @quest.user.name %>の隠された才能に驚きつつ、こんなにも素晴らしい作品を他の誰かと共有したいという衝動に駆られた。しかし、それは<%= @quest.user.name %>の個人的な記録であり、私が勝手に触れるべきではない。
+        <%= @quest.user.name %>が席に戻ってくると、何事もなかったかのように会話を再開した。しかし、私の心の中には、<%= @quest.user.name %>の書いた詩が静かに響き続けていた。それは、私たちの友情に新たな一面を加え、<%= @quest.user.name %>をより深く理解するきっかけとなったのだった。
+      </div>
+      <!-- センター揃えにならない -->
+    <div class="flex flex-center">
+      <div>
+        <button class="btn btn-neutral">Xで知らせる</button>
+      </div>
+      <div class="flex items-center">
+        <%= image_tag 'quest.svg', alt: 'quest', class: "h-4" %>
+        <%= link_to 'みんなのクエスト', requests_path %>
+      </div>
+    </div>
+
+    </div>
+  </div>
+
+  <p class="text-sm mx-2">このストーリーはフィクションです</p>
+</div>

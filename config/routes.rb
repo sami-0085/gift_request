@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     member do
       get :choice
       post :answer
+      get :correct
     end
   end
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?

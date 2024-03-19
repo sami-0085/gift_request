@@ -16,9 +16,15 @@
           </div>
         </div>
       <div class="mt-4 sm:text-xl text-base/7">
-        <%= @quest.user.name %>が欲しいと思っているのはーーー
+        そうか、<%= @quest.user.name %>がいま欲しいと思っているのはーーー
       </div>
-      
+      <!-- 選択肢 -->
+      <%= form_with url: answer_quest_path(@quest), method: :post, local: true do |f| %>
+        <% @quest.choices.each do |choice| %>
+          <%= f.button choice.content, name: "selected_choice", value: choice.content, class: "btn" %>
+        <% end %>
+      <% end %>
+
     </div>
   </div>
   <p class="text-sm mx-2">このストーリーはフィクションです</p>
