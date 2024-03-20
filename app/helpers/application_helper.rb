@@ -29,4 +29,11 @@ module ApplicationHelper
     base_title = 'GIFT REQUEST'
     title.present? ? "#{title} | #{base_title}" : base_title
   end
+
+  # 各ページの説明文　120文字前後
+  # Googleのような検索エンジンの検索結果一覧ページで活用される
+  def full_description(page_description = '')
+    base_description = "ギフトリクエストは、プレゼントして欲しいものを謎解きゲームにして伝えることができる「プレゼント伝達アプリ」です"
+    page_description.present? ? "#{page_description}" : base_description
+  end
 end
