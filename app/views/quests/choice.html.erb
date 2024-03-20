@@ -1,6 +1,6 @@
 <div class="my-10 mx-auto w-11/12 sm:w-6/5 max-w-5xl">
   <div class="card w-full bg-base-100 image-full shadow-xl">
-    <figure><%= image_tag 'coffe.webp', alt: '喫茶店' %></figure>
+    <figure><%= image_tag 'note.webp', alt: '喫茶店' %></figure>
     <div class="card-body">
       <h2 class="card-title justify-center">~story2~ <%= @quest.user.name %>の詩</h2>
       <div class="mt-4 sm:text-xl text-base/7">詩には<%= @quest.user.name %>の心の奥深くに秘められた想いが、繊細な言葉選びとリズムで表現されている。その深い感情の波が、私にはっきりと伝わってきたー</div>
@@ -16,12 +16,13 @@
           </div>
         </div>
       <div class="mt-4 sm:text-xl text-base/7">
-        そうか、<%= @quest.user.name %>がいま欲しいと思っているのはーーー
+        そうか、<%= @quest.user.name %>がいま欲しいと思っているのはーーー<br>
+        （どれか1つ選択してください）
       </div>
       <!-- 選択肢 -->
-      <%= form_with url: answer_quest_path(@quest), method: :post, local: true do |f| %>
+      <%= form_with url: answer_quest_path(@quest), method: :post, local: true, class: "flex justify-center" do |f| %>
         <% @quest.choices.each do |choice| %>
-          <%= f.button choice.content, name: "selected_choice", value: choice.content, class: "btn" %>
+          <%= f.button choice.content, name: "selected_choice", value: choice.content, class: "btn mx-2 hover:bg-primary hover:border-primary" %>
         <% end %>
       <% end %>
 
