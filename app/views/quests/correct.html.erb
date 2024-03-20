@@ -9,16 +9,17 @@
       </div>
       <!-- センター揃えにならない -->
     <div class="flex flex-center">
-      <!-- Twitterシェア機能 -->
       <div class="flex items-center">
         <%= image_tag 'quest.svg', alt: 'quest', class: "h-4" %>
         <%= link_to 'みんなのクエスト', requests_path %>
       </div>
-      <% twitter_url = "https://twitter.com/share?url=https://gift-request.onrender.com&text=【#{CGI.escape(@quest.user.name)}さんのクエストに挑戦したよ！】%0a@sammy_study%20%23ギフトリクエスト%20%20%23テスト" %>
-      <%= link_to twitter_url, title: 'Twitter', class: 'btn btn-neutral', target: '_blank' do %>
-        <i class="fa-brands fa-x-twitter"></i> シェア
-      <% end %>
-
+      <!-- Twitterシェア機能 -->
+      <div>
+        <% twitter_url = "https://twitter.com/share?url=#{CGI.escape(request.base_url + quest_path(@quest))}&text=【#{CGI.escape(@quest.user.name)}さんのクエストに挑戦したよ！】%0a@sammy_study%20%23ギフトリクエスト%20%20%23テスト" %>
+        <%= link_to twitter_url, title: 'Twitter', class: 'btn btn-neutral', target: '_blank', rel: 'noopener noreferrer' do %>
+          <i class="fa-brands fa-x-twitter"></i> シェア
+        <% end %>
+      </div>
     </div>
 
     </div>
