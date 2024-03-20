@@ -1,41 +1,42 @@
-<div class="my-10 mx-auto w-11/12 sm:w-6/5 max-w-5xl">
-
-  <div class="card mx-2 md:w-full bg-base-100 image-full shadow-xl">
+<div class="my-10 mx-auto w-11/12 sm:w-6/5 max-w-2xl">
+  <div class="card w-full bg-base-100 image-full shadow-xl">
     <figure><%= image_tag 'coffe.webp', alt: '喫茶店' %></figure>
     <div class="card-body">
-      <h2 class="card-title justify-center">~story1~イントロダクション</h2>
-      <div class="mt-4 sm:text-xl">喫茶店の窓際、柔らかな陽光がテーブルを照らしている。<br>
-      私と<%= @quest.user.name %>は、お気に入りのコーヒーショップで午後のひと時を楽しんでいた。
-      私たちの間には、会話が途切れることなく、温かいコーヒーのカップが並んでいる。<br>
-      何気ない日常が穏やかに過ぎていく。
-      しかし、その平和なひと時は、突然の出来事によって少しだけ変わり始めた。<br>
-      <%= @quest.user.name %>が席を立っていた時に、通りすがりの見知らぬ客が、
-      気づかずに<%= @quest.user.name %>のノートを落としていってしまったのだ。
-      私は慌ててノートを拾い上げた。その時、うっかりページが開いてしまい、
-      ノートの中身が目に飛び込んできた。そこには、<%= @quest.user.name %>が綴った詩が記されていた---
+      <h2 class="card-title justify-center text-2xl">- Story1 -</h2>
+      <div class="mt-4 sm:text-lg sm:mt-8 text-base/7">喫茶店の窓際、柔らかな陽光がテーブルを照らしている。<br>
+        私と<%= @quest.user.name %>は、お気に入りのコーヒーショップで午後のひと時を楽しんでいた。
+        私たちの間には、会話が途切れることなく、温かいコーヒーのカップが並んでいる。<br>
+        何気ない日常が穏やかに過ぎていく。
+        しかし、その平和なひと時は、突然の出来事によって少しだけ変わり始めた。<br>
+        <%= @quest.user.name %>が席を立っていた時に、通りすがりの見知らぬ客が、
+        気づかずに<%= @quest.user.name %>のノートを落としていってしまったのだ。
+        私は慌ててノートを拾い上げた。その時、うっかりページが開いてしまい、
+        ノートの中身が目に飛び込んできた。そこには、<%= @quest.user.name %>が綴った詩が記されていた---
       </div>
-  <!-- 表示ボタン -->
-      <div class="card-title justify-center">
-        <button id="showButton" class="btn btn-primary w-24">みる</button>
-      </div>
-        <!-- 表示/非表示を切り替える対象のカード -->
-        <div id="questCard" class="card w-full mx-auto bg-base-200 shadow-xl hidden">
-          <div class="flex flex-col md:flex-row items-center">
-            <figure>
-              <%= image_tag 'note.png', alt: 'Note', class: 'px-8 pt-8 md:pr-0 md:py-8 rounded-xl' %>
-            </figure>
-            <div class="card-body items-center text-left text-neutral">
-              <h2 class="card-title"><%= @quest.title %></h2>
-              <p class="text-sm"><%= @quest.quest %></p>
-              <!-- 非表示ボタン -->
-              <button id="hideButton" class="btn btn-primary hidden">閉じる</button>
+      <!-- 表示ボタン -->
+      <div class="collapse bg-base-200 mt-4">
+        <input type="checkbox" /> 
+        <div class="collapse-title text-md font-medium">
+          ノートの中身を見る
+        </div>
+        <div class="collapse-content"> 
+          <div class="card w-full mx-auto">
+            <div class="flex flex-col md:flex-row items-center">
+              <figure>
+                <%= image_tag 'note.png', alt: 'Note', class: 'px-8 pt-8 md:pr-0 md:py-8 rounded-xl' %>
+              </figure>
+              <div class="card-body items-center text-left text-neutral">
+                <h2 class="card-title"><%= @quest.title %></h2>
+                <p class="text-sm mt-4"><%= @quest.quest %></p>
+              </div>
             </div>
           </div>
         </div>
-      <div class="card-actions justify-center">
+      </div>
+      <div class="card-actions justify-center mt-4">
         <%= link_to '次へ進む', choice_quest_path(@quest), class: "btn btn-primary" %>
       </div>
     </div>
   </div>
-  <p class="text-sm mx-2">このストーリーはフィクションです</p>
+  <p class="text-sm text-ash mx-2">この物語はAIによって創造されたフィクションであり、実際の人物・団体・事件とは一切関係ありません。作中には不自然な表現や想定外の言葉が含まれる可能性がありますので、ご了承ください。</p>
 </div>

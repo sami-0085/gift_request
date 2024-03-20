@@ -2,37 +2,30 @@
   <div class="card w-full bg-base-100 image-full shadow-xl">
     <figure><%= image_tag 'wait.webp', alt: '友人を待つ' %></figure>
     <div class="card-body">
-      <h2 class="card-title justify-center text-2xl">- Last story -</h2>
-      <div class="mt-4 sm:text-xl sm:mt-8">
+      <h2 class="card-title justify-center text-2xl">- Epilogue -</h2>
+      <div class="mt-4 sm:text-lg sm:mt-8 text-base/7">
         私はノートを閉じ、<%= @quest.user.name %>が戻ってくるのを静かに待った。心の中で、<%= @quest.user.name %>の隠された才能に驚きつつ、こんなにも素晴らしい作品を他の誰かと共有したいという衝動に駆られたが、それは<%= @quest.user.name %>の個人的な記録であり、私が勝手に触れるべきではない。<br>
         しばらくして<%= @quest.user.name %>が席に戻ってくると、何事もなかったかのように会話を再開した。<br>
         しかし、私の心の中には、<%= @quest.user.name %>の書いた詩が静かに響き続けていた。<br>
-        それは、私たちの友情に新たな一面を加え、<%= @quest.user.name %>をより深く理解するきっかけとなったのだった。<br>
+        それは、私たちの友情に新たな一面を加え、<%= @quest.user.name %>をより深く理解するきっかけとなったのだったー。<br>
       </div>
       <!-- Twitterシェア機能 -->
       <div class="flex justify-center pt-4 md:pt-8">
-        <% twitter_url = "https://twitter.com/share?url=#{CGI.escape(request.base_url + quest_path(@quest))}&text=【#{CGI.escape(@quest.user.name)}さんのクエストに挑戦したよ！】%0a@sammy_study%20%23ギフトリクエスト%20%20%23テスト" %>
-        <%= link_to twitter_url, title: 'Twitter', class: 'btn', target: '_blank', rel: 'noopener noreferrer' do %>
-          <i class="fa-brands fa-x-twitter"></i> シェア
-        <% end %>
+        <div class="tooltip tooltip-accent tooltip-bottom " data-tip="クエストクリアをシェアしよう！">
+          <% twitter_url = "https://twitter.com/share?url=#{CGI.escape(request.base_url + quest_path(@quest))}&text=【#{CGI.escape(@quest.user.name)}さんのクエストに挑戦したよ！】%0a@sammy_study%20%23ギフトリクエスト%20%20%23テスト" %>
+          <%= link_to twitter_url, title: 'Twitter', class: 'btn', target: '_blank', rel: 'noopener noreferrer' do %>
+            <i class="fa-brands fa-x-twitter"></i> シェア
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
-
-  <p class="text-sm mx-2">このストーリーはフィクションです</p>
-      <!-- ボタン　センター揃えにならない -->
-    <div class="flex justify-center">
-      <div class="flex items-center">
-        <%= link_to requests_path do %>
-        <%= image_tag 'quest.svg', alt: 'quest', class: "mr-4 btn btn-primary" %>
-        <% end %>
-      </div>
-      <!-- Twitterシェア機能 -->
-      <div>
-        <% twitter_url = "https://twitter.com/share?url=#{CGI.escape(request.base_url + quest_path(@quest))}&text=【#{CGI.escape(@quest.user.name)}さんのクエストに挑戦したよ！】%0a@sammy_study%20%23ギフトリクエスト%20%20%23テスト" %>
-        <%= link_to twitter_url, title: 'Twitter', class: 'btn btn-neutral', target: '_blank', rel: 'noopener noreferrer' do %>
-          <i class="fa-brands fa-x-twitter"></i> シェア
-        <% end %>
+  <p class="text-sm text-ash mx-2">この物語はAIによって創造されたフィクションであり、実際の人物・団体・事件とは一切関係ありません。作中には不自然な表現や想定外の言葉が含まれる可能性がありますので、ご了承ください。</p>
+      <!-- カードの外側 -->
+    <div class="flex justify-center pt-4">
+      <div class="btn btn-primary flex items-center">
+        <%= image_tag 'quest.svg', alt: 'quest', class: "h-4" %>
+        <%= link_to 'みんなのクエストへ', requests_path %>
       </div>
     </div>
 </div>
