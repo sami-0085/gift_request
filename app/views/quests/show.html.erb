@@ -13,28 +13,8 @@
         私は慌ててノートを拾い上げた。その時、うっかりページが開いてしまい、
         ノートの中身が目に飛び込んできた。そこには、<%= @quest.user.name %>が綴った詩が記されていた---
       </div>
-      <!-- 表示ボタン -->
-      <div class="collapse bg-base-200 mt-4">
-        <input type="checkbox" /> 
-        <div class="collapse-title text-md font-medium">
-          ノートの中身を見る
-        </div>
-        <div class="collapse-content"> 
-          <div class="card w-full mx-auto">
-            <div class="flex flex-col md:flex-row items-center">
-              <figure>
-                <%= image_tag 'note.png', alt: 'Note', class: 'px-8 pt-8 md:pr-0 md:py-8 rounded-xl' %>
-              </figure>
-              <div class="card-body items-center text-left text-neutral">
-                <h2 class="card-title"><%= @quest.title %></h2>
-                <p class="text-sm mt-4"><%= @quest.quest %></p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
       <div class="card-actions justify-center mt-4">
-        <%= link_to '次へ進む', choice_quest_path(@quest), class: "btn btn-primary" %>
+        <%= link_to 'Story2へ', choice_quest_path(@quest), class: "btn btn-primary" %>
       </div>
     </div>
   </div>

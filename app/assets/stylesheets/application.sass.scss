@@ -1,1 +1,6 @@
 // Entry point for your Sass build
+
+// 緩やかなカーブ背景のスタイル
+.curved-bg {
+    clip-path: ellipse(50% 100% at 50% 100%);
+  }
