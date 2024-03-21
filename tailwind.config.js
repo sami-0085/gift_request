@@ -13,4 +13,11 @@ module.exports = {
       "cupcake"
     ],
   },
+  theme: {
+    extend: {
+      colors: {
+        ash: '#525252' // カスタムカラーを追加
+      },
+    },
+  },
 }

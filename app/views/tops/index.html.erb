@@ -4,7 +4,8 @@
       <div class="max-w-md">
         <%= image_tag 'titlelogo.png', alt: 'gift_request_logo' %>
       </div>
-      <button class="btn btn-primary skeleton bg-primary rounded-full">さっそく、始める</button>
+      <%= link_to 'さっそく、始める', requests_path, class: "btn btn-primary skeleton bg-primary rounded-full" %>
+
     </div>
     <div class="max-w-md">
       <%= image_tag 'bearbox.png', alt: 'bear&giftbox' %>

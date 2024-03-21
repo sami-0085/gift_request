@@ -1,31 +1,40 @@
-<div class="my-10 mx-auto w-11/12 sm:w-6/5 max-w-5xl">
+<div class="my-10 mx-auto w-11/12 sm:w-6/5 max-w-2xl">
   <div class="card w-full bg-base-100 image-full shadow-xl">
-    <figure><%= image_tag 'coffe.webp', alt: '喫茶店' %></figure>
+    <figure><%= image_tag 'note.webp', alt: 'ノートを読む' %></figure>
     <div class="card-body">
-      <h2 class="card-title justify-center">~story2~ <%= @quest.user.name %>の詩</h2>
-      <div class="mt-4 sm:text-xl text-base/7">詩には<%= @quest.user.name %>の心の奥深くに秘められた想いが、繊細な言葉選びとリズムで表現されている。その深い感情の波が、私にはっきりと伝わってきたー</div>
-        <div id="questCard" class="card w-full mx-auto bg-base-200 shadow-xl">
+      <h2 class="card-title justify-center text-2xl">- Story2 -</h2>
+        <div class="card w-full mx-auto bg-base-200 shadow-xl mt-4">
           <div class="flex flex-col md:flex-row items-center">
             <figure>
-              <%= image_tag 'note.png', alt: 'Note', class: 'px-8 pt-8 md:pr-0 md:py-8 rounded-xl' %>
+              <%= image_tag 'note.png', alt: 'Note', class: 'px-8 pt-8 md:pr-0 md:py-8' %>
             </figure>
             <div class="card-body items-center text-left text-neutral">
               <h2 class="card-title"><%= @quest.title %></h2>
-              <p class="text-sm"><%= @quest.quest %></p>
+              <p class="text-sm md:text-md"><%= @quest.quest %></p>
             </div>
           </div>
         </div>
-      <div class="mt-4 sm:text-xl text-base/7">
-        そうか、<%= @quest.user.name %>がいま欲しいと思っているのはーーー
+      <div class="mt-4 sm:mt-8 sm:text-lg text-base/7">詩には<%= @quest.user.name %>の心の奥深くに秘められた想いが、繊細な言葉選びとリズムで表現されている。その深い感情の波が、私にはっきりと伝わってきたー<br>
+        そうだったのか、<%= @quest.user.name %>がいま欲しいと思っているのはーーー<br>
       </div>
-      <!-- 選択肢 -->
-      <%= form_with url: answer_quest_path(@quest), method: :post, local: true do |f| %>
-        <% @quest.choices.each do |choice| %>
-          <%= f.button choice.content, name: "selected_choice", value: choice.content, class: "btn" %>
-        <% end %>
+
+      <!-- 解答入力 -->
+      <%= form_tag(answer_quest_path(@quest), method: :post, class: "flex flex-col items-center justify-center gap-4 mt-4") do %>
+        <div class="w-full max-w-md sm:flex sm:items-center">
+          <div class="form-control w-full">
+            <%= text_field_tag :name, nil, placeholder: "例：クマのぬいぐるみ", class: "input input-bordered", required: true %>
+          </div>
+          <div class="w-full flex justify-center sm:justify-start sm:w-auto">
+            <%= submit_tag "送信", class: "btn hover:bg-primary hover:border-primary mt-4 sm:mt-0 sm:ml-2" %>
+          </div>
+        </div>
+        <p class="text-xs text-neutral-400">※正確に入力してください(漢字,カタカナ、スペース等)</p>
       <% end %>
 
+      <div class="card-actions justify-center mt-4">
+        <%= link_to 'まだ分からないな。もう少し手がかりを探そう', hint_quest_path(@quest), class: "btn btn-primary" %>
+      </div>
     </div>
   </div>
-  <p class="text-sm mx-2">このストーリーはフィクションです</p>
+  <p class="text-sm text-ash mx-2">この物語はAIによって創造されたフィクションであり、実際の人物・団体・事件とは一切関係ありません。作中には不自然な表現や想定外の言葉が含まれる可能性がありますので、ご了承ください。</p>
 </div>

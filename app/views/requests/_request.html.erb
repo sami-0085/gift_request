@@ -16,10 +16,19 @@
 <p class="mb-4 text-gray-500 sm:text-lg md:mb-4">
   欲しい日: <%= user_request.desired_date.present? ? l(user_request.desired_date, format: :short) : '記入なし' %>
 </p>
+<!-- リンクパスを動的に変更 （本人のクエスト_リクエスト詳細、本人以外_クエスト挑戦） -->
 <p class="font-bold text-primary text-lg">
-  タイトル：
-  <%= link_to user_request.title, request_path(user_request), class: "hover:text-accent" %>
+  <% if current_user == user_request.user %>
+    <%= link_to request_path(user_request), class: "hover:text-accent" do %>
+      タイトル： <%= user_request.title %>
+    <% end %>
+  <% else %>
+    <%= link_to quest_path(user_request), class: "hover:text-accent" do %>
+      タイトル： <%= user_request.title %>
+    <% end %>
+  <% end %>
 </p>
+
 <% if current_user && user_request.user_id == current_user.id %>
   <%= link_to request_path(user_request), data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか？'} do %>
     <%= image_tag 'delete.svg', alt: 'delete_quest', class: "flex items-center justify-center h-9 hover:bg-gray-400 rounded-md transition-colors duration-150" %>

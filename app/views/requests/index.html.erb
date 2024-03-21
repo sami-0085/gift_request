@@ -1,7 +1,11 @@
 <% content_for(:title, t('.title')) %>
 
 <div class="max-w-screen-xl mx-auto py-6 md:px-8">
-  <h1 class="text-3xl font-bold flex items-center"><%= image_tag 'quest.svg', alt: 'quest', class: "h-9 mr-2" %>みんなのクエスト</h1>
+  <div class="flex justify-center">
+    <h1 class="text-3xl font-bold flex items-center text-neutral">
+      <%= image_tag 'quest.svg', alt: 'quest', class: "h-9 mr-2" %>みんなのクエスト
+    </h1>
+  </div>
 
   <% if @user_requests.present? %>
     <div class="flex flex-wrap -mx-2">
@@ -11,5 +15,5 @@
   <% else %>
     <p>クエストはありません</p>
   <% end %>
- </div>
+</div>
   <%= paginate @user_requests %>
