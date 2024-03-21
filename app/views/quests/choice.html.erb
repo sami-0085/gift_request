@@ -14,12 +14,17 @@
             </div>
           </div>
         </div>
-      <div class="mt-4 sm:mt-8 sm:text-lg text-base/7">詩には<%= @quest.user.name %>の心の奥深くに秘められた想いが、繊細な言葉選びとリズムで表現されている。その深い感情の波が、私にはっきりと伝わってきたー<br>
+      <div class="mt-4 sm:mt-8 sm:text-lg text-base/7">
+        文字からは、普段見せることのない<%= @quest.user.name %>の心の奥底に秘められた、深い感情が垣間見えるようだった。
+        まるで、詩の一節一節がブタさんの魂の叫びであるかのように、繊細な言葉選びとリズムが、
+        静かにしかし力強く私の心に響き渡る。
+        その瞬間、周りの世界は、もはや以前とは全く違って見えた。喫茶店の穏やかな光景の中にも、
+        隠された感情の深淵がうねるように感じられたのだ。<%= @quest.user.name %>がいま心から欲しているものが、突然明らかになったようだった。
         そうだったのか、<%= @quest.user.name %>がいま欲しいと思っているのはーーー<br>
       </div>
       <!-- モーダル -->
       <div class="flex justify-center">
-        <button class="btn btn-primary w-1/2 mt-4" onclick="my_modal_4.showModal()">答えがわかった！</button>
+        <button class="btn btn-primary w-3/5 mt-4" onclick="my_modal_4.showModal()">なるほど、答えが分かったぞ！</button>
         <dialog id="my_modal_4" class="modal">
           <div class="modal-box relative"> <!-- relativeクラスを追加 -->
             <!-- ✕ボタン -->
@@ -44,8 +49,8 @@
         </dialog>
       </div>
 
-      <div class="card-actions justify-center mt-4">
-        <%= link_to 'まだ分からないな。もう少し手がかりを探そう', hint_quest_path(@quest), class: "btn btn-primary" %>
+      <div class="card-actions justify-center mt-2">
+        <%= link_to 'まだ分からないな。もう少し手がかりを探そう', hint_quest_path(@quest), class: "btn btn-primary w-3/5" %>
       </div>
     </div>
   </div>
