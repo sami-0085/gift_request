@@ -1,14 +1,26 @@
 <% content_for(:title, t('.title')) %>
 
-<div class="container mx-auto px-4">
-  <div class="max-w-md mx-auto my-10">
-    <h1 class="text-4xl font-bold mb-5 text-center">パスワードリセット申請</h1>
-    <%= form_with url: password_resets_path, local: true do |f| %>
+<div class="hero min-h-screen bg-base-100 max-w-screen-xl mx-auto">
+  <div class="hero-content w-full flex-col lg:flex-row-reverse mx-8">
+    <div class="text-center lg:text-left lg:flex lg:items-center">
       <div>
-        <%= f.label :email, User.human_attribute_name(:email), class: "block text-sm font-medium text-gray-700" %><br/>
-        <%= f.email_field :email, class: 'form-control' %>
+        <h1 class="text-4xl lg:text-5xl font-bold"><%= t('.title') %></h1>
+        <p class="py-4">登録しているメールアドレスを入力してください。<br>パスワードリセット用のメールが届きます。</p>
       </div>
-      <%= f.submit '送信', class: "btn btn-primary w-full" %>
-    <% end %>
+    </div>
+
+    <div class="card w-full max-w-sm shadow-2xl bg-base-100 lg:ml-16">
+      <%= form_with url: password_resets_path, local: true do |f| %>
+        <div class="card-body mx-auto">
+          <div class="form-control mt-2">
+            <%= f.label :email, class: "label-text" %>
+            <%= f.email_field :email, placeholder: "email@example.com", class: "input input-bordered", required: true, autocomplete: "email" %>
+          </div>
+          <div class="form-control mt-4 lg:mt-6">
+            <%= f.submit t('password_resets.new.password_reset'), class: "btn btn-primary" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>

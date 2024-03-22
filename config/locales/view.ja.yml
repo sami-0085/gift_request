@@ -33,6 +33,10 @@ ja:
       failure: ログインに失敗しました
     destroy:
       success: ログアウトしました
+  password_resets:
+    new:
+      title: パスワードリセット
+      password_reset: 送信
   users:
     new:
       title: ユーザー登録
