@@ -18,14 +18,14 @@
       <!-- ヒント -->
       <div class="flex justify-center gap-4 mt-4">
       <% @quest.hints.each do |hint| %>
-        <button class="btn btn-ghost w-1/4 border-neutral-300 text-neutral-300 hover:border-primary hover:text-primary" onclick="<%= hint.number %>.showModal()">手がかり<%= hint.number.gsub('hint', '') %></button>
+        <button class="btn btn-ghost btn-sm w-1/4 border-neutral-300 text-neutral-300 hover:border-primary hover:text-primary" onclick="<%= hint.number %>.showModal()">手がかり<%= hint.number.gsub('hint', '') %></button>
         <dialog id="<%= hint.number %>" class="modal">
           <div class="modal-box">
-            <h3 class="font-bold text-lg">手がかり<%= hint.number.gsub('hint', '') %></h3>
-            <p class="py-4"><%= hint.content %></p>
+            <h3 class="font-bold text-lg text-neutral-400">手がかり<%= hint.number.gsub('hint', '') %></h3>
+            <p class="py-4 text-neutral-400"><%= hint.content %></p>
           </div>
           <form method="dialog" class="modal-backdrop">
-             <button>close</button>
+            <button>close</button>
           </form>
         </dialog>
       <% end %>

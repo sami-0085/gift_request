@@ -3,7 +3,7 @@
 <div class="container mx-auto px-4">
   <div class="max-w-md mx-auto my-10">
     <h1 class="text-4xl font-bold mb-5 text-center">編集</h1>
-    <%= form_with model: @user, url: profile_path, class: "space-y-4" do |f| %>
+    <%= form_with model: @user, url: profile_path, class: "space-y-4", local: true, multipart: true do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
       <div>
         <%= f.label :name, class: "block text-sm font-medium text-gray-700" %>

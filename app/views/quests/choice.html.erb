@@ -14,27 +14,45 @@
             </div>
           </div>
         </div>
-      <div class="mt-4 sm:mt-8 sm:text-lg text-base/7">詩には<%= @quest.user.name %>の心の奥深くに秘められた想いが、繊細な言葉選びとリズムで表現されている。その深い感情の波が、私にはっきりと伝わってきたー<br>
-        そうだったのか、<%= @quest.user.name %>がいま欲しいと思っているのはーーー<br>
+      <div class="mt-4 sm:mt-8 sm:text-lg text-base/7">
+        文字から滲み出るのは、普段見せない<%= @quest.user.name %>の内面から湧き上がる深遠な感情の波。
+        まるで<%= @quest.user.name %>の魂の叫びであるかのように、繊細な言葉選びとリズムが静かながらも力強く私の心に響き渡る。
+        <%= @quest.user.name %>がいま心から欲しているものが、突然明らかになったようだった。<br>
+        そうか、<%= @quest.user.name %>が今、真に求めているのは──。<br>
+      </div>
+      <!-- モーダル -->
+      <div class="flex justify-center">
+        <button class="btn btn-primary w-3/5 mt-4" onclick="my_modal_4.showModal()">なるほど、求めているものはこれだ！</button>
+        <dialog id="my_modal_4" class="modal">
+          <div class="modal-box relative"> <!-- relativeクラスを追加 -->
+            <!-- ✕ボタン -->
+            <form method="dialog">
+              <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+            </form>
+            <!-- モーダルのタイトル -->
+            <h3 class="font-bold text-lg text-neutral-400">答えを入力してね！</h3>
+            <!-- 回答入力フォーム -->
+            <%= form_tag(answer_quest_path(@quest), method: :post, class: "flex flex-col items-center justify-center gap-4 mt-4") do %>
+              <div class="w-full max-w-md">
+                <div class="form-control w-full">
+                  <%= text_field_tag :name, nil, placeholder: "例：クマのぬいぐるみ", class: "input input-bordered", required: true %>
+                </div>
+                <div class="w-full flex justify-center">
+                  <%= submit_tag "送信", class: "btn hover:bg-primary hover:border-primary mt-4" %>
+                </div>
+              </div>
+              <p class="text-xs text-neutral-400">※正確に入力してください(漢字,カタカナ、スペース等)</p>
+            <% end %>
+          </div>
+        </dialog>
       </div>
 
-      <!-- 解答入力 -->
-      <%= form_tag(answer_quest_path(@quest), method: :post, class: "flex flex-col items-center justify-center gap-4 mt-4") do %>
-        <div class="w-full max-w-md sm:flex sm:items-center">
-          <div class="form-control w-full">
-            <%= text_field_tag :name, nil, placeholder: "例：クマのぬいぐるみ", class: "input input-bordered", required: true %>
-          </div>
-          <div class="w-full flex justify-center sm:justify-start sm:w-auto">
-            <%= submit_tag "送信", class: "btn hover:bg-primary hover:border-primary mt-4 sm:mt-0 sm:ml-2" %>
-          </div>
-        </div>
-        <p class="text-xs text-neutral-400">※正確に入力してください(漢字,カタカナ、スペース等)</p>
-      <% end %>
-
-      <div class="card-actions justify-center mt-4">
-        <%= link_to 'まだ分からないな。もう少し手がかりを探そう', hint_quest_path(@quest), class: "btn btn-primary" %>
+      <div class="card-actions justify-center mt-2">
+        <%= link_to 'まだ分からないな。もう少し手がかりを探そう', hint_quest_path(@quest), class: "btn btn-primary w-3/5" %>
       </div>
     </div>
   </div>
   <p class="text-sm text-ash mx-2">この物語はAIによって創造されたフィクションであり、実際の人物・団体・事件とは一切関係ありません。作中には不自然な表現や想定外の言葉が含まれる可能性がありますので、ご了承ください。</p>
 </div>
+
+

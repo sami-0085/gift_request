@@ -9,6 +9,7 @@ ja:
         name: ニックネーム
         password: パスワード
         password_confirmation: パスワード確認
+        avatar: プロフィール画像
       request:
         name: 欲しいもの
         desired_date: 欲しい日
@@ -16,3 +17,8 @@ ja:
         style: スタイル
         title: タイトル
         quest: クエスト
+  errors:
+    flash_messages:
+      invalid_login: メールアドレスが間違っています。
+      invalid_password: パスワードが間違っています。
+      inactive: アカウントがまだ有効化されていません。
