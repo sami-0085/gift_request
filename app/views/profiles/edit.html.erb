@@ -25,7 +25,7 @@
                         class: "file-input file-input-bordered file-input-primary w-full max-w-xs" %>
             <%= f.hidden_field :avatar_cache %>
             <%= image_tag @user.avatar.variant(:display),
-                        class: 'mt-4 rounded-full h-32 w-32 mx-auto my-2 border',
+                        class: 'mt-4 rounded-full mx-auto my-2 border',
                         id: 'preview' %>
           </div>
           <%= f.submit class: "btn btn-primary w-full" %>

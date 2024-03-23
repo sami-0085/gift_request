@@ -14,4 +14,15 @@ class User < ApplicationRecord
                     message: "有効なフォーマットではありません" },
                     size: { less_than: 5.megabytes, message: " 5MBを超える画像はアップロードできません" }
   validates :reset_password_token, presence: true, uniqueness: true, allow_nil: true
+
+  # ユーザーが保存される前にデフォルトの画像を設定する
+  before_save :set_default_avatar
+
+  private
+
+  def set_default_avatar
+    unless avatar.attached?
+      avatar.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'icon.png')), filename: 'default-avatar.png', content_type: 'image/png')
+    end
+  end
 end
