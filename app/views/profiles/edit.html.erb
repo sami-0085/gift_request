@@ -1,26 +1,29 @@
 <% content_for(:title, t('.title')) %>
 
-<div class="container mx-auto px-4">
-  <div class="max-w-md mx-auto my-10">
-    <h1 class="text-4xl font-bold mb-5 text-center">編集</h1>
-    <%= form_with model: @user, url: profile_path, class: "space-y-4", local: true, multipart: true do |f| %>
-      <%= render 'shared/error_messages', object: f.object %>
-      <div>
-        <%= f.label :name, class: "block text-sm font-medium text-gray-700" %>
-        <%= f.text_field :name, class: "input input-bordered w-full max-w-xs", required: true %>
-      </div>
-      <div>
-        <%= f.label :email, class: "block text-sm font-medium text-gray-700" %>
-        <%= f.email_field :email, class: "input input-bordered w-full max-w-xs", required: true %>
-      </div>
-      <!------ 添付画像のプレビューを表示 ------>
-      <div id="avatar" >
-        <img id="avatar_preview" class="mb-3" width="100">
-      </div>
-      <!------ 現在DBに登録(保存)されている画像を表示 ------>
-      <div class="avatar mt-2">
-        <%= f.label :avatar, '画像(5MBまで)', class: "block text-sm font-medium text-gray-700" %><br>
-        <%= f.file_field :avatar, onchange: "avatarImage(this);", accept: "image/jpeg,image/gif,image/png", class: "mb-3" %>
+  <div class="hero min-h-screen bg-base-100 max-w-screen-xl mx-auto lg:rounded-xl">
+    <div class="w-full max-w-md mx-auto bg-base-300">
+      <h1 class="text-4xl font-bold mb-5 text-center"><%= t('.title') %></h1>
+      <div class="mx-auto">
+        <%= form_with model: @user, url: profile_path, class: "space-y-4", local: true, multipart: true do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
+          <div class="form-control mt-2">
+            <%= f.label :name, class: "label-text mb-1" %>
+            <%= f.text_field :name, class: "input input-bordered", required: true %>
+          </div>
+          <div class="form-control mt-2">
+            <%= f.label :email, class: "label-text mb-1" %>
+            <%= f.email_field :email, class: "input input-bordered", required: true %>
+          </div>
+          <!------ 添付画像のプレビューを表示 ------>
+          <div id="avatar" >
+            <img id="avatar_preview" class="mb-3" width="100">
+          </div>
+        <!------ 現在DBに登録(保存)されている画像を表示 ------>
+        <div class="form-image mt-2">
+          <%= f.label :avatar, class: "label-text mb-1" do %>
+            プロフィール画像<span class="border border-secondary rounded-md text-xs p-0.5 text-secondary mr-1">画像(5MBまで)</span>
+          <% end %>
+          <%= f.file_field :avatar, onchange: "avatarImage(this);", accept: "image/jpeg,image/gif,image/png", class: "file-input file-input-bordered file-input-primary w-full max-w-xs" %>
 
         
         <div class="rounded-full shadow-xl mx-auto mt-16 h-40 w-40 bg-cover bg-center">
@@ -33,11 +36,13 @@
           <% end %>
         </div>
       </div>
+      </div>
 
       <%= f.submit class: "btn btn-primary w-full" %>
     <% end %>
   </div>
 </div>
+
 
 <!------ プレビュー表示用の JavaScript ------->
 <script>

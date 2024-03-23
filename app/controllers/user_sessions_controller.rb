@@ -6,7 +6,7 @@ class UserSessionsController < ApplicationController
   def create
     login(params[:email], params[:password]) do |user, failure|
       if user && !failure
-        redirect_back_or_to(:users, notice: t('user_sessions.create.success'))
+        redirect_back_or_to(root_path, notice: t('user_sessions.create.success'))
       else
         case failure
         when :invalid_login
