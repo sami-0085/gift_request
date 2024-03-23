@@ -1,41 +1,54 @@
 <% content_for(:title, t('.title')) %>
 
-<div class="hero min-h-screen bg-base-100 max-w-screen-xl mx-auto">
+<div class="hero min-h-screen bg-base-100 max-w-screen-xl mx-auto lg:rounded-xl">
   <div class="hero-content w-full flex-col lg:flex-row-reverse mx-8">
     <div class="text-center lg:text-left lg:flex lg:items-center">
-      <div>
+      <div class="lg:ml-4">
         <h1 class="text-4xl lg:text-5xl font-bold"><%= t('.title') %></h1>
         <p class="hidden lg:block py-4">欲しいものが見つかったらリクエスト登録！<br>誰かが気づいてくれるかも・・・</p>
       </div>
-      <div class="hidden lg:block lg:w-1/3">
+      <div class="hidden lg:block lg:w-80">
         <%= image_tag 'bearbox.png', alt: 'bear&giftbox' %>
       </div>
     </div>
 
-    <div class="card w-full max-w-sm shadow-2xl bg-base-100 lg:ml-16">
-      <%= form_with model: @user, class: "space-y-4", local: true do |f| %>
-      <%= render 'shared/error_messages', object: f.object %>
+    <div class="card w-full max-w-md shadow-2xl bg-base-100">
+      <%= form_with model: @user, class: "space-y-4", local: true, multipart: true do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
         <div class="card-body mx-auto">
           <div class="form-control mt-2">
-            <%= f.label :name, class: "label-text" %>
+            <%= f.label :name, class: "label-text mb-1" do %>
+              <span class="border border-secondary rounded-md text-xs p-0.5 text-secondary mr-1">必須</span>ニックネーム
+            <% end %>
             <%= f.text_field :name, placeholder: "クエスト太郎", class: "input input-bordered", required: true, autocomplete: "name" %>
           </div>
           <div class="form-control mt-2">
-            <%= f.label :email, class: "label-text" %>
+            <%= f.label :email, class: "label-text mb-1" do %>
+              <span class="border border-secondary rounded-md text-xs p-0.5 text-secondary mr-1">必須</span>メールアドレス
+            <% end %>
             <%= f.email_field :email, placeholder: "email@example.com", class: "input input-bordered", required: true, autocomplete: "email" %>
           </div>
           <div class="form-control mt-2">
-              <%= f.label :password, class: "label-text" %>
+              <%= f.label :password, class: "label-text mb-1" do %>
+                <span class="border border-secondary rounded-md text-xs p-0.5 text-secondary mr-1">必須</span>パスワード
+              <% end %>
               <%= f.password_field :password, placeholder: "password", class: "input input-bordered", required: true, autocomplete: "current-password" %>
           </div>
           <div class="form-control mt-2">
-              <%= f.label :password_confirmation, class: "label-text" %>
+              <%= f.label :password_confirmation, class: "label-text mb-1" do %>
+                <span class="border border-secondary rounded-md text-xs p-0.5 text-secondary mr-1">必須</span>パスワード確認
+              <% end %>
               <%= f.password_field :password_confirmation, placeholder: "password", class: "input input-bordered", required: true, autocomplete: "current-password" %>
           </div>
-          <div class="form-control mt-4 lg:mt-6">
-            <%= f.submit t('user_sessions.new.login'), class: "btn btn-primary" %>
-              <%= link_to t('users.new.to_login_page'), login_path, class: "label-text-alt text-center link link-hover hover:text-accent mt-2" %>
+          <div class="form-image mt-2">
+            <%= f.label :avatar, class: "label-text" %><br>
+            <%= f.file_field :avatar, accept: "image/jpeg,image/gif,image/png", class: "file-input file-input-bordered file-input-primary w-full max-w-xs" %>
           </div>
+          <div class="form-control mt-4 lg:mt-6">
+            <%= f.submit t('helpers.submit.create'), class: "btn btn-primary" %>
+            <%= link_to t('users.new.to_login_page'), login_path, class: "label-text-alt text-center link link-hover hover:text-accent mt-4" %>
+          </div>
+
         </div>
       <% end %>
     </div>

@@ -15,15 +15,14 @@
           </div>
         </div>
       <div class="mt-4 sm:mt-8 sm:text-lg text-base/7">
-        文字からは、普段見せることのない<%= @quest.user.name %>の心の奥底に秘められた、深い感情が垣間見えるようだった。
+        文字から滲み出るのは、普段見せない<%= @quest.user.name %>の内面から湧き上がる深遠な感情の波。
         まるで<%= @quest.user.name %>の魂の叫びであるかのように、繊細な言葉選びとリズムが静かながらも力強く私の心に響き渡る。
-        その瞬間、周りの世界は、もはや以前とは全く違って見えた。喫茶店の穏やかな光景の中にも、
-        隠された感情の深淵がうねるように感じられたのだ。<%= @quest.user.name %>がいま心から欲しているものが、突然明らかになったようだった。<br>
-        そうだったのか、<%= @quest.user.name %>がいま欲しいと思っているのはーーー<br>
+        <%= @quest.user.name %>がいま心から欲しているものが、突然明らかになったようだった。<br>
+        そうか、<%= @quest.user.name %>が今、真に求めているのは──。<br>
       </div>
       <!-- モーダル -->
       <div class="flex justify-center">
-        <button class="btn btn-primary w-3/5 mt-4" onclick="my_modal_4.showModal()">なるほど、答えが分かったぞ！</button>
+        <button class="btn btn-primary w-3/5 mt-4" onclick="my_modal_4.showModal()">なるほど、求めているものはこれだ！</button>
         <dialog id="my_modal_4" class="modal">
           <div class="modal-box relative"> <!-- relativeクラスを追加 -->
             <!-- ✕ボタン -->

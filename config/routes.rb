@@ -13,7 +13,6 @@ Rails.application.routes.draw do
       post :answer
       get :hint
       get :correct
-
     end
   end
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
