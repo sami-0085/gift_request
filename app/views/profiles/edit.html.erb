@@ -2,7 +2,7 @@
 
   <div class="hero min-h-screen bg-base-100 max-w-screen-xl mx-auto lg:rounded-xl">
     <div class="w-full px-8 md:px-0 max-w-md mx-auto">
-      <h1 class="text-4xl font-bold mb-5 text-center mb-8"><%= t('.title') %></h1>
+      <h1 class="text-3xl md:text-4xl font-bold mb-5 text-center mb-8"><%= t('.title') %></h1>
       <div class="mx-auto">
         <%= form_with model: @user, url: profile_path, class: "space-y-4", local: true, multipart: true do |f| %>
         <%= render 'shared/error_messages', object: f.object %>
