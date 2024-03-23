@@ -5,14 +5,8 @@
     <div class="p-4 md:p-12 text-center lg:text-left">
       <!-- Image for mobile view-->
       <div class="avatar lg:hidden">
-        <div class="block rounded-full shadow-xl mx-auto -mt-16 h-40 w-40 bg-cover bg-center">
-          <% if current_user.avatar.attached? %>
+        <div class="block rounded-full shadow-xl mx-auto -mt-16 h-32 w-32 bg-cover bg-center">
             <%= image_tag current_user.avatar.variant(:display), class: "mb-4" %>
-          <% else %>
-            <div class="flex items-center justify-center overflow-hidden rounded-full bg-gray-200 p-2">
-              <%= image_tag 'avatar.svg', alt: 'アバター' %>
-            </div>
-          <% end %>
         </div>
       </div>
       <h1 class="text-3xl font-bold pt-8 lg:pt-0"><%= current_user.name %></h1>
@@ -23,17 +17,11 @@
       </div> 
     </div>
   </div>
-  <!-- Right side Image for desktop -->
+  <!-- lg以上の時の画像 -->
   <div class="lg:w-2/5 lg:block hidden">
     <div class="avatar">
         <div class="rounded-none lg:rounded-lg shadow-2xl">
-          <% if current_user.avatar.attached? %>
             <%= image_tag current_user.avatar %>
-          <% else %>
-            <div class="bg-gray-200 p-2">
-              <%= image_tag 'avatar.svg', alt: 'アバター' %>
-            </div>
-          <% end %>
         </div>
       </div>
   </div>
