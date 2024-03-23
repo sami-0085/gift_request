@@ -24,9 +24,11 @@
             <%= f.file_field :avatar, id: "input", accept: "image/jpeg,image/gif,image/png",
                         class: "file-input file-input-bordered file-input-primary w-full max-w-xs" %>
             <%= f.hidden_field :avatar_cache %>
+            <% if user_request.@user.avatar.attached? %>
             <%= image_tag @user.avatar.variant(:display).processed,
                         class: 'mt-4 rounded-full mx-auto my-2 border w-32 h-32',
                         id: 'preview' %>
+            <% end %>
           </div>
           <%= f.submit class: "btn btn-primary w-full" %>
         <% end %>
