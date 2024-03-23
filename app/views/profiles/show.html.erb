@@ -6,7 +6,9 @@
       <!-- Image for mobile view-->
       <div class="avatar lg:hidden">
         <div class="block rounded-full shadow-xl mx-auto -mt-16 h-32 w-32 bg-cover bg-center">
+          <% if current_user.avatar.attached? %>
             <%= image_tag current_user.avatar.variant(:display), class: "mb-4" %>
+          <% end %>
         </div>
       </div>
       <h1 class="text-3xl font-bold pt-4 lg:pt-0"><%= current_user.name %></h1>
