@@ -20,7 +20,7 @@ module.exports = {
         poem: ['Zen Kurenaido', 'sans-serif'],
       },
       colors: {
-        ash: '#999999', // カスタムカラーを追加
+        ash: '#737373', // カスタムカラーを追加
       },
     },
   },
