@@ -1,24 +1,94 @@
 <% content_for(:title, t('.title')) %>
 
-<h1>リクエスト詳細画面</h1>
+<div class="max-w-screen-lg my-10 shadow-xl bg-base-100 md:rounded-2xl p-8 mx-auto">
+    <h1 class="text-4xl font-bold text-center m-4"><%= t('.title') %></h1>
+    
+<section class="text-ash body-font overflow-hidden">
+  <div class="container px-5 py-24 mx-auto">
+    <div class="-my-8 divide-y-2 divide-green-100">
+      <div class="py-8 flex flex-wrap md:flex-nowrap">
+        <div class="md:w-32 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
+          <span class="font-semibold title-font text-gray-700">欲しいもの</span>
+        </div>
+        <div class="md:flex-grow">
+          <h2 class="text-2xl font-bold title-font"><%= @user_request.name %></h2>
+          <div class="border-b-2 border-green-500 opacity-25 min-w-[600px]"></div>
+        </div>
+      </div>
+      <div class="py-8 flex flex-wrap md:flex-nowrap">
+        <div class="md:w-32 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
+          <span class="font-semibold title-font text-gray-700">欲しい日</span>
+        </div>
+        <div class="md:flex-grow">
+          <h2 class="text-xl font-medium text-gray-900 title-font mb-2"><%= @user_request.desired_date.present? ? l(@user_request.desired_date, format: :short) : '記入なし' %></h2>
+          <p class="leading-relaxed">Glossier echo park pug, church-key sartorial biodiesel vexillologist pop-up snackwave ramps cornhole. Marfa 3 wolf moon party messenger bag selfies, poke vaporware kombucha lumbersexual pork belly polaroid hoodie portland craft beer.</p>
+          <a class="text-priymary inline-flex items-center mt-4">編集</a>
+        </div>
+      </div>
+      <div class="py-8 flex flex-wrap md:flex-nowrap">
+        <div class="md:w-32 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
+          <span class="font-semibold title-font text-gray-700">備考</span>
+        </div>
+        <div class="md:flex-grow">
+          <h2 class="text-xl font-medium text-gray-900 title-font mb-2"><%= @user_request.remarks.present? ? @user_request.remarks : '記入なし' %></h2>
+          <a class="text-priymary inline-flex items-center mt-4">編集</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <div class="w-5/6 mx-auto max-w-screen-xl py-6 md:px-8">
     <div class="grid gap-8 md:grid-cols-2 lg:gap-12">
-      <div class="card w-auto bg-indigo-50  bg-base-100 shadow-md">
+      <!-- クエスト詳細 -->
+      <div class="card w-auto bg-base-200 shadow-lg">
         <div class="card-body">
           <h2 class="card-title mt-2"><%= @user_request.title %></h2>
           <p class="mt-4 text-md lg:text-lg"><%= @user_request.quest %></p>
         </div>
       </div>
+      <!-- テーブル -->
+<div class="overflow-x-auto">
+  <table class="table">
+    <!-- head -->
+    <thead>
+      <tr>
+        <th>クエスト</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- row 1 -->
+      
+      <tr>
+        <th>ヒント</th>
+        <td>1.<%= @user_request.hint_by_number('hint1') %></td>
+        <td>2.<%= @user_request.hint_by_number('hint2') %></td>
+        <td>3.<%= @user_request.hint_by_number('hint3') %></td>
+      </tr>
+      <!-- row 2 -->
+      <tr>
+        <th>選択肢</th>
+        <td>1.<%= @user_request.choice_by_number('choice1') %></td>
+        <td>2.<%= @user_request.choice_by_number('choice2') %></td>
+        <td>3.<%= @user_request.choice_by_number('choice3') %></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+      <!-- テーブル終わり -->
+      <div class="md:pt-4">
+        <p class="mb-1 text-center font-bold text-primary md:text-left border-b-2 border-emerald-500">
+          欲しいもの
+        </p>
 
-      <div class="md:pt-6">
-        <p class="mb-1 text-center font-bold text-indigo-500 md:text-left">欲しいもの</p>
-
-        <h1 class="mb-4 text-center text-2xl font-bold text-gray-800 sm:text-3xl md:mb-4 md:text-left">
+        <h1 class="mb-4 text-center text-xl font-bold text-gray-800 md:mb-4 md:text-left">
           <%= @user_request.name %>
         </h1>
 
         <p class="text-center font-bold text-indigo-500 md:text-left">欲しい日</p>
+        <div class="border-t-2 border-green-500 opacity-25"></div>
         <p class="mb-4 text-center text-gray-500 sm:text-lg md:mb-4 md:text-left">
           <%= @user_request.desired_date.present? ? l(@user_request.desired_date, format: :short) : '記入なし' %>
         </p>
@@ -48,6 +118,7 @@
             <% end %>
             <% end %>
           </div>
-      </div>
     </div>
-  </div>  
+    </div> 
+  </div> 
+</div> 
