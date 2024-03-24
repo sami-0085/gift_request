@@ -10,12 +10,16 @@
             <%= f.text_field :name, class: "input input-bordered", placeholder:'例：クマのぬいぐるみ', required: true %>
           </div>
           <div class="form-control mt-2">
-            <%= f.label :desired_date, class: "label-text mb-1" %>
-            <%= f.date_field :desired_date, class: "input input-bordered", required: true %>
+            <%= f.label :desired_date, class: "label-text mb-1" do %>
+              <span class="border border-primary rounded-md text-xs p-0.5 text-primary mr-1">任意</span>欲しい日
+            <% end %>
+            <%= f.date_field :desired_date, class: "input input-bordered" %>
           </div>
           <div class="form-control mt-2">
-            <%= f.label :remarks, class: "label-text mb-1" %>
-            <%= f.text_area :remarks, class: "textarea textarea-bordered", placeholder:'例：抱きつけるような大きいもの', required: true %>
+            <%= f.label :remarks, class: "label-text mb-1" do %>
+              <span class="border border-primary rounded-md text-xs p-0.5 text-primary mr-1">任意</span>備考
+            <% end %>
+            <%= f.text_area :remarks, class: "textarea textarea-bordered", placeholder:'例：抱きつけるような大きいもの' %>
           </div>
           <%= f.submit class: "btn btn-primary w-full" %>
         <% end %>
