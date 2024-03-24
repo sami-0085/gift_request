@@ -17,31 +17,25 @@
         <%= render 'shared/error_messages', object: f.object %>
         <div class="card-body mx-auto">
           <div class="form-control mt-2">
-            <%= f.label :name, class: "label-text mb-1" do %>
-              <span class="border border-secondary rounded-md text-xs p-0.5 text-secondary mr-1">必須</span>ニックネーム
-            <% end %>
+            <%= f.label :name, class: "label-text mb-1" %>
             <%= f.text_field :name, placeholder: "クエスト太郎", class: "input input-bordered", required: true, autocomplete: "name" %>
           </div>
           <div class="form-control mt-2">
-            <%= f.label :email, class: "label-text mb-1" do %>
-              <span class="border border-secondary rounded-md text-xs p-0.5 text-secondary mr-1">必須</span>メールアドレス
-            <% end %>
+            <%= f.label :email, class: "label-text mb-1" %>
             <%= f.email_field :email, placeholder: "email@example.com", class: "input input-bordered", required: true, autocomplete: "email" %>
           </div>
           <div class="form-control mt-2">
-              <%= f.label :password, class: "label-text mb-1" do %>
-                <span class="border border-secondary rounded-md text-xs p-0.5 text-secondary mr-1">必須</span>パスワード
-              <% end %>
+              <%= f.label :password, class: "label-text mb-1" %>
               <%= f.password_field :password, placeholder: "password", class: "input input-bordered", required: true, autocomplete: "current-password" %>
           </div>
           <div class="form-control mt-2">
-              <%= f.label :password_confirmation, class: "label-text mb-1" do %>
-                <span class="border border-secondary rounded-md text-xs p-0.5 text-secondary mr-1">必須</span>パスワード確認
-              <% end %>
+              <%= f.label :password_confirmation, class: "label-text mb-1" %>
               <%= f.password_field :password_confirmation, placeholder: "password", class: "input input-bordered", required: true, autocomplete: "current-password" %>
           </div>
           <div class="form-image mt-2">
-            <%= f.label :avatar, class: "label-text" %><br>
+              <%= f.label :avatar, class: "label-text mb-1" do %>
+                <span class="border border-primary rounded-md text-xs p-0.5 text-primary mr-1">任意</span>プロフィール画像
+              <% end %>
             <%= f.file_field :avatar, accept: "image/jpeg,image/gif,image/png", class: "file-input file-input-bordered file-input-primary w-full max-w-xs" %>
           </div>
           <div class="form-control mt-4 lg:mt-6">

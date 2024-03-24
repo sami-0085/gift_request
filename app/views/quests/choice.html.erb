@@ -1,4 +1,4 @@
-<div class="my-10 mx-auto w-11/12 sm:w-6/5 max-w-2xl">
+<div class="my-10 mx-auto w-11/12 sm:w-6/5 max-w-3xl">
   <div class="card w-full bg-base-100 image-full shadow-xl">
     <figure><%= image_tag 'note.webp', alt: 'ノートを読む' %></figure>
     <div class="card-body">
@@ -14,7 +14,7 @@
             </div>
           </div>
         </div>
-      <div class="mt-4 sm:mt-8 sm:text-lg text-base/7">
+      <div class="mt-4 text-base sm:text-lg overflow-auto">
         文字から滲み出るのは、普段見せない<%= @quest.user.name %>の内面から湧き上がる深遠な感情の波。
         まるで<%= @quest.user.name %>の魂の叫びであるかのように、繊細な言葉選びとリズムが静かながらも力強く私の心に響き渡る。
         <%= @quest.user.name %>がいま心から欲しているものが、突然明らかになったようだった。<br>

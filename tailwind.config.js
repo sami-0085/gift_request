@@ -6,17 +6,21 @@ module.exports = {
     './app/javascript/**/*.js'
   ],
   plugins: [
-    require('daisyui')
+    require('daisyui'),
   ],
   daisyui: {
     themes: [
-      "cupcake"
+      "cupcake",
     ],
   },
   theme: {
     extend: {
+      fontFamily: {
+        moti: ['Mochiy Pop One', 'sans-serif'],
+        poem: ['Zen Kurenaido', 'sans-serif'],
+      },
       colors: {
-        ash: '#999999' // カスタムカラーを追加
+        ash: '#999999', // カスタムカラーを追加
       },
     },
   },

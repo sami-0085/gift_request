@@ -1,9 +1,10 @@
-<div class="my-10 mx-auto w-11/12 sm:w-6/5 max-w-2xl">
-  <div class="card w-full bg-base-100 image-full shadow-xl">
+<div class="my-10 mx-auto w-11/12 max-w-3xl">
+  <div class="card w-full image-full shadow-xl">
     <figure><%= image_tag 'coffe.webp', alt: '喫茶店' %></figure>
     <div class="card-body">
       <h2 class="card-title justify-center text-2xl">- Story1 -</h2>
-      <div class="mt-4 sm:text-lg sm:mt-8 text-base/7">喫茶店の窓際で、柔らかな陽光がテーブルを照らしている。<br>
+      <div class="mt-4 text-base sm:text-lg overflow-auto">
+        喫茶店の窓際で、柔らかな陽光がテーブルを照らしている。<br>
         私と<%= @quest.user.name %>は、お気に入りのコーヒーショップで午後のひと時を楽しんでいた。
         私たちの間には、会話が途切れることなく、温かいコーヒーのカップが並んでいる。<br>
         何気ない日常が穏やかに過ぎていく。
@@ -11,7 +12,7 @@
         <%= @quest.user.name %>が席を立っていた時、通りすがりの見知らぬ客が、
         不注意にも<%= @quest.user.name %>のノートを床に落としてしまったのだ。
         私は慌ててノートを拾い上げた。その時、うっかりとページがめくれてしまい、
-        ノートの中身が目に飛び込んできた。そこには、<%= @quest.user.name %>が心を込めて綴った詩の数々が記されていた---
+        ノートの中身が目に飛び込んできた。そこには、<%= @quest.user.name %>が心を込めて綴った詩の数々が記されていた──。
       </div>
       <div class="card-actions justify-center mt-4">
         <%= link_to 'Story2へ', choice_quest_path(@quest), class: "btn btn-primary" %>

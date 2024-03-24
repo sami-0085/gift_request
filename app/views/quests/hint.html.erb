@@ -1,4 +1,4 @@
-<div class="my-10 mx-auto w-11/12 sm:w-6/5 max-w-2xl">
+<div class="my-10 mx-auto w-11/12 sm:w-6/5 max-w-3xl">
   <div class="card w-full bg-base-100 image-full shadow-xl">
     <figure><%= image_tag 'note.webp', alt: 'ノートを読む' %></figure>
     <div class="card-body">
@@ -14,7 +14,8 @@
             </div>
           </div>
         </div>
-      <div class="mt-4 sm:mt-8 sm:text-lg text-base/7">う〜ん。もう少しで分かりそうなのに。<br>おや、ノートの隅に、詩を書くとき参考にしたと思われる走り書きがあるぞ。これを手がかりにできないだろうか？</div>
+
+      <div class="mt-4 sm:mt-8 sm:text-lg">う〜ん。もう少しで分かりそうなのに。<br>おや、ノートの隅に、詩を書くとき参考にしたと思われる走り書きがあるぞ。これを手がかりにできないだろうか？</div>
       <!-- ヒント -->
       <div class="flex justify-center gap-4 mt-4">
       <% @quest.hints.each do |hint| %>
@@ -38,7 +39,7 @@
       <!-- 選択肢 -->
       <div class="flex justify-center mt-4">
         <%= form_with url: answer_quest_path(@quest), method: :post, local: true, class: "bg-base-200 rounded-xl" do |f| %>
-          <div class="flex flex-col md:flex-row gap-1">
+          <div class="flex flex-col md:flex-row gap-1 flex-wrap">
             <% @quest.choices.each do |choice| %>
               <%= f.button choice.content, name: "selected_choice", value: choice.content, class: "btn m-1 md:m-2 hover:bg-primary hover:border-primary" %>
             <% end %>
