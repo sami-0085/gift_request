@@ -2,7 +2,7 @@
 
   <div class="hero min-h-screen bg-base-100 max-w-screen-xl mx-auto lg:rounded-xl">
     <div class="w-full px-8 md:px-0 max-w-md mx-auto">
-      <h1 class="text-4xl font-bold mb-5 text-center mb-8"><%= t('.title') %></h1>
+      <h1 class="text-3xl md:text-4xl font-bold mb-5 text-center mb-8"><%= t('.title') %></h1>
       <div class="mx-auto">
         <%= form_with model: @user, url: profile_path, class: "space-y-4", local: true, multipart: true do |f| %>
         <%= render 'shared/error_messages', object: f.object %>
@@ -24,9 +24,11 @@
             <%= f.file_field :avatar, id: "input", accept: "image/jpeg,image/gif,image/png",
                         class: "file-input file-input-bordered file-input-primary w-full max-w-xs" %>
             <%= f.hidden_field :avatar_cache %>
-            <%= image_tag @user.avatar.variant(:display).processed,
+            <% if @user.avatar.attached? %>
+              <%= image_tag @user.avatar.variant(:display),
                         class: 'mt-4 rounded-full mx-auto my-2 border w-32 h-32',
                         id: 'preview' %>
+            <% end %>
           </div>
           <%= f.submit class: "btn btn-primary w-full" %>
         <% end %>

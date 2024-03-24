@@ -6,10 +6,12 @@
       <!-- Image for mobile view-->
       <div class="avatar lg:hidden">
         <div class="block rounded-full shadow-xl mx-auto -mt-16 h-32 w-32 bg-cover bg-center">
+          <% if current_user.avatar.attached? %>
             <%= image_tag current_user.avatar.variant(:display), class: "mb-4" %>
+          <% end %>
         </div>
       </div>
-      <h1 class="text-3xl font-bold pt-8 lg:pt-0"><%= current_user.name %></h1>
+      <h1 class="text-3xl font-bold pt-4 lg:pt-0"><%= current_user.name %></h1>
       <div class="mx-auto lg:mx-0 w-4/5 pt-3 border-b-2 border-green-500 opacity-25"></div>
       <p class="pt-2 text-gray-600 text-sm flex items-center justify-center lg:justify-start">email: <%= current_user.email %></p> 
       <div class="actions pt-2">
@@ -29,10 +31,11 @@
 <!-- クエスト一覧表示 -->
 
 <div class="max-w-screen-xl mx-auto py-6 md:px-8">
+<div class="flex justify-center m-8">
   <h1 class="text-3xl font-bold flex items-center"><%= image_tag 'quest.svg', alt: 'quest', class: "h-9 mr-2" %><%= current_user.name %>のクエスト一覧</h1>
-
+</div>
   <% if @user_requests.present? %>
-    <div class="flex flex-wrap -mx-2">
+    <div class="flex flex-wrap">
       <%= render partial: 'requests/request', collection: @user_requests, as: :user_request %>
     </div>
   <% else %>

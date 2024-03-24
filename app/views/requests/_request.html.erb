@@ -1,40 +1,42 @@
- <div class="w-full sm:w-1/2 md:w-1/2 lg:w-1/3 px-2 py-2">
+<div class="w-full sm:w-1/2 md:w-1/2 lg:w-1/3 p-2">
      
- <div class="card bg-base-100 shadow-md">
-        <div class="card-body flex items-left">
-<!-- Card content -->
-<div class="rounded-full shadow-md mx-auto h-20 w-20 bg-cover bg-center">
-  <% if user_request.user.avatar.attached? %>
-    <%= image_tag user_request.user.avatar.variant(:display), class: "rounded-full mb-4" %>
-  <% else %>
-    <div class="flex items-center justify-center overflow-hidden rounded-full bg-gray-200 p-2">
-      <%= image_tag 'avatar.svg', alt: 'アバター' %>
-    </div>
-  <% end %>
-</div>
-<p class="font-bold text-primary"><%= user_request.user.name %>さんのクエスト</p>
-<p class="mb-4 text-gray-500 sm:text-lg md:mb-4">
-  欲しい日: <%= user_request.desired_date.present? ? l(user_request.desired_date, format: :short) : '記入なし' %>
-</p>
-<!-- リンクパスを動的に変更 （本人のクエスト_リクエスト詳細、本人以外_クエスト挑戦） -->
-<p class="font-bold text-primary text-lg">
-  <% if current_user == user_request.user %>
-    <%= link_to request_path(user_request), class: "hover:text-accent" do %>
-      タイトル： <%= user_request.title %>
-    <% end %>
-  <% else %>
-    <%= link_to quest_path(user_request), class: "hover:text-accent" do %>
-      タイトル： <%= user_request.title %>
-    <% end %>
-  <% end %>
-</p>
+  <div class="card bg-base-100 shadow-md">
+    <div class="card-body flex items-left">
+      <!-- Card content -->
+      <div class="flex items-center space-x-4"> <!-- Flexbox コンテナ -->
+        <% if user_request.user.avatar.attached? %>
+          <%= image_tag user_request.user.avatar.variant(:display), class: "rounded-full shadow-md h-20 w-20 min-w-20" %>
+        <% end %>
+        <!-- リンクパスを動的に変更 （本人のクエスト_リクエスト詳細、本人以外_クエスト挑戦） -->
+        <% link_path = current_user == user_request.user ? request_path(user_request) : quest_path(user_request) %>
+        <%= link_to link_path, class: "font-bold hover:text-accent" do %>
+          <div class="mx-auto"> <!-- テキストを囲む追加のdiv、必要に応じて -->
+            <p class="text-sm mb-2 line-clamp-2"><%= user_request.user.name %>さんのクエスト</p>
+            <p class="text-xl"><%= user_request.title %></p>
+          </div>
+        <% end %>
+      </div>
 
-<% if current_user && user_request.user_id == current_user.id %>
-  <%= link_to request_path(user_request), data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか？'} do %>
-    <%= image_tag 'delete.svg', alt: 'delete_quest', class: "flex items-center justify-center h-9 hover:bg-gray-400 rounded-md transition-colors duration-150" %>
-  <% end %>
-<% end %>
-<p class="mb-4 text-center text-gray-500 sm:text-md md:mb-4 md:text-right">作成日: <%= l user_request.created_at %></p>
+      <p class="mt-4">
+        欲しい日: <%= user_request.desired_date.present? ? l(user_request.desired_date, format: :short) : '記入なし' %>
+      </p>
+      <div class="mt-2">
+        <span class="bg-ash text-white text-sm font-medium py-1 px-3 rounded-full">タグ1</span>
+        <span class="bg-ash text-white text-sm font-medium py-1 px-3 rounded-full">タグ2</span>
+      </div>
+
+      
+      <div class="flex justify-end items-center mt-2">
+        <% if current_user && user_request.user_id == current_user.id %>
+          <div class="mr-4">
+            <%= link_to "削除", request_path(user_request), data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか？'}, class: "link link-hover hover:text-accent" %>
+          </div>
+        <% end %>
+        <div>
+          <p>作成日: <%= l(user_request.created_at, format: :short) %></p>
+        </div>
+      </div>
+
+    </div>
   </div>
-    </div>
-    </div>
+</div>

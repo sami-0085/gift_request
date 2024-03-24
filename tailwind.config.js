@@ -16,7 +16,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        ash: '#525252' // カスタムカラーを追加
+        ash: '#999999' // カスタムカラーを追加
       },
     },
   },
