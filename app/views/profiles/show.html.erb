@@ -13,7 +13,9 @@
       </div>
       <h1 class="text-3xl font-bold pt-4 lg:pt-0"><%= current_user.name %></h1>
       <div class="mx-auto lg:mx-0 w-4/5 pt-3 border-b-2 border-green-500 opacity-25"></div>
-      <p class="pt-2 text-gray-600 text-sm flex items-center justify-center lg:justify-start">email: <%= current_user.email %></p> 
+      <p class="pt-2 text-gray-600 text-sm flex items-center justify-center lg:justify-start">email:  <%= current_user.email %></p>
+      <p class="pt-4 text-base font-bold flex items-center justify-center lg:justify-start">My Request: <%= @user_requests.total_count %></p>
+      <p class="py-8 text-sm">ギフトクエストをご利用いただきありがとうございます。<br>自己紹介欄になる予定です。</p> 
       <div class="actions pt-2">
         <%= link_to '編集', edit_profile_path, class: 'btn btn-primary' %>
       </div> 
@@ -29,7 +31,6 @@
   </div>
 </div>
 <!-- クエスト一覧表示 -->
-
 <div class="max-w-screen-xl mx-auto py-6 md:px-8">
 <div class="flex justify-center m-8">
   <h1 class="text-3xl font-bold flex items-center"><%= image_tag 'quest.svg', alt: 'quest', class: "h-9 mr-2" %><%= current_user.name %>のクエスト一覧</h1>
@@ -42,6 +43,5 @@
     <p>クエストはありません</p>
   <% end %>
 </div>
-  <%= paginate @user_requests %>
-  <%= @user_requests.total_count %>
-  <%= @user_requests.total_pages %>
+<%= paginate @user_requests %>
+

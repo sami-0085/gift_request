@@ -25,11 +25,11 @@
         <span class="bg-ash text-white text-sm font-medium py-1 px-3 rounded-full">タグ2</span>
       </div>
 
-      
+      <!-- 削除機能 （本人のクエストの時のみ表示） -->
       <div class="flex justify-end items-center mt-2">
         <% if current_user && user_request.user_id == current_user.id %>
           <div class="mr-4">
-            <%= link_to "削除", request_path(user_request), data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか？'}, class: "link link-hover hover:text-accent" %>
+            <%= link_to "削除", request_path(user_request), data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか？'}, class: "link link-hover hover:text-accent text-red-800" %>
           </div>
         <% end %>
         <div>
