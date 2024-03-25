@@ -5,7 +5,9 @@
       <!-- Card content -->
       <div class="flex items-center space-x-4"> <!-- Flexbox コンテナ -->
         <% if user_request.user.avatar.attached? %>
-          <%= image_tag user_request.user.avatar.variant(:display), class: "rounded-full shadow-md h-20 w-20 min-w-20" %>
+          <%= link_to user_path(user_request.user) do %>
+            <%= image_tag user_request.user.avatar.variant(:display), class: "rounded-full shadow-md h-20 w-20 min-w-20" %>
+          <% end %>
         <% end %>
         <!-- リンクパスを動的に変更 （本人のクエスト_リクエスト詳細、本人以外_クエスト挑戦） -->
         <% link_path = current_user == user_request.user ? request_path(user_request) : quest_path(user_request) %>
