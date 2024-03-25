@@ -9,9 +9,53 @@
         しかし、私の心の中には、<%= @quest.user.name %>の書いた詩が静かに響き続けていた。<br>
         それは、私たちの友情に新たな一面を加え、<%= @quest.user.name %>をより深く理解するきっかけとなったのだった──。<br>
       </div>
-      <!-- Twitterシェア機能 -->
-      <div class="flex justify-center pt-4 md:pt-8">
-        <div class="tooltip tooltip-accent tooltip-bottom " data-tip="クエストクリアをシェアしよう！">
+
+      <div class="flex justify-center mt-8 md:mt-16">
+        <!-- モーダル -->
+        <button class="btn btn-primary" onclick="my_modal_5.showModal()">リクエスト詳細</button>
+        <dialog id="my_modal_5" class="modal">
+          <div class="modal-box relative"> <!-- relativeクラスを追加 -->
+            <!-- ✕ボタン -->
+            <form method="dialog">
+              <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+            </form>
+            <!-- クエスト詳細 -->
+            <section class="text-ash body-font">
+              <div class="container px-8 p-4 pb-8 mx-auto">
+                <p class="text-ash mb-10 p-1 bg-gradient-to-r from-green-200 to-indigo-200 font-bold text-center rounded-full">リクエスト内容</p>
+                <div class="-my-8 divide-y-4 divide-green-200 divide-dotted">
+                  <div class="py-4 flex flex-wrap md:flex-nowrap">
+                    <div class="md:w-48 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
+                      <span class="font-semibold title-font">欲しいもの</span>
+                    </div>
+                    <div class="md:flex-grow w-full">
+                      <h2 class="text-2xl font-bold title-font "><%= @quest.name %></h2>
+                    </div>
+                  </div>
+                  <div class="py-4 flex flex-wrap md:flex-nowrap">
+                    <div class="md:w-48 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
+                      <span class="font-semibold title-font">欲しい日</span>
+                    </div>
+                    <div class="md:flex-grow w-full">
+                      <h2 class="text-xl font-medium title-font mb-2"><%= @quest.desired_date.present? ? l(@quest.desired_date, format: :short) : '記入なし' %></h2>
+                    </div>
+                  </div>
+                  <div class="py-4 flex flex-wrap md:flex-nowrap">
+                    <div class="md:w-48 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
+                      <span class="font-semibold title-font">備考</span>
+                    </div>
+                    <div class="md:flex-grow w-full">
+                      <h2 class="text-xl font-medium title-font mb-2"><%= @quest.remarks.present? ? @quest.remarks : '記入なし' %></h2>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </dialog>
+
+        <!-- Twitterシェア機能 -->
+        <div class="tooltip tooltip-accent tooltip-bottom ml-4" data-tip="クエストクリアをシェアしよう！">
           <% twitter_url = "https://twitter.com/share?url=#{CGI.escape(request.base_url + quest_path(@quest))}&text=【#{CGI.escape(@quest.user.name)}さんのクエストに挑戦したよ！】%0a@sammy_study%20%23ギフトリクエスト%20%20%23テスト" %>
           <%= link_to twitter_url, title: 'Twitter', class: 'btn', target: '_blank', rel: 'noopener noreferrer' do %>
             <i class="fa-brands fa-x-twitter"></i> シェア
@@ -20,7 +64,7 @@
       </div>
     </div>
   </div>
-  <p class="text-sm text-ash mx-2">この物語はAIによって創造されたフィクションであり、実際の人物・団体・事件とは一切関係ありません。作中には不自然な表現や想定外の言葉が含まれる可能性がありますので、ご了承ください。</p>
+  <p class="text-xs text-ash mx-2">この物語はAIによって創造されたフィクションであり、実際の人物・団体・事件とは一切関係ありません。作中には不自然な表現や想定外の言葉が含まれる可能性がありますので、ご了承ください。</p>
       <!-- カードの外側 -->
     <div class="flex justify-center pt-4">
       <div class="btn btn-primary flex items-center">

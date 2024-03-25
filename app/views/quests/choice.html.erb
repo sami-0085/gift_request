@@ -8,17 +8,17 @@
             <figure>
               <%= image_tag 'note.png', alt: 'Note', class: 'px-8 pt-8 md:pr-0 md:py-8' %>
             </figure>
-            <div class="card-body items-center text-left text-neutral">
+            <div class="card-body items-center text-left text-neutral font-poem">
               <h2 class="card-title"><%= @quest.title %></h2>
-              <p class="text-sm md:text-md"><%= @quest.quest %></p>
+              <p class="text-sm md:text-lg"><%= @quest.quest %></p>
             </div>
           </div>
         </div>
       <div class="mt-4 text-base sm:text-lg overflow-auto">
-        文字から滲み出るのは、普段見せない<%= @quest.user.name %>の内面から湧き上がる深遠な感情の波。
-        まるで<%= @quest.user.name %>の魂の叫びであるかのように、繊細な言葉選びとリズムが静かながらも力強く私の心に響き渡る。
-        <%= @quest.user.name %>がいま心から欲しているものが、突然明らかになったようだった。<br>
-        そうか、<%= @quest.user.name %>が今、真に求めているのは──。<br>
+        文字からは、普段見せない<%= @quest.user.name %>の深い感情が伝わってきた。
+        まるで<%= @quest.user.name %>の魂が叫んでいるかのようだ。繊細な言葉選びとリズムが、静かに、しかし確かに私の心に響きわたる。
+        <%= @quest.user.name %>が本当に求めているものが、突然として明らかになった瞬間だった。<br>
+        そうか、<%= @quest.user.name %>が今、心から求めているのは──。<br>
       </div>
       <!-- モーダル -->
       <div class="flex justify-center">
@@ -52,7 +52,7 @@
       </div>
     </div>
   </div>
-  <p class="text-sm text-ash mx-2">この物語はAIによって創造されたフィクションであり、実際の人物・団体・事件とは一切関係ありません。作中には不自然な表現や想定外の言葉が含まれる可能性がありますので、ご了承ください。</p>
+  <p class="text-xxs text-ash mx-2">この物語はAIによって創造されたフィクションであり、実際の人物・団体・事件とは一切関係ありません。作中には不自然な表現や想定外の言葉が含まれる可能性がありますので、ご了承ください。</p>
 </div>
 
 
