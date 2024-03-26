@@ -16,9 +16,11 @@
       <% end %>
       <p class="pt-4 text-base font-bold flex items-center justify-center lg:justify-start">My Request: <%= user_requests.total_count %></p>
       <p class="py-8 text-sm">ギフトクエストをご利用いただきありがとうございます。<br>自己紹介欄になる予定です。</p> 
-      <div class="actions">
-        <%= link_to '編集', edit_profile_path, class: 'btn btn-primary' %>
-      </div> 
+      <% if user == current_user %>
+        <div class="actions">
+          <%= link_to '編集', edit_profile_path, class: 'btn btn-primary' %>
+        </div>
+      <% end %> 
     </div>
   </div>
   <!-- lg以上の時の画像 -->
