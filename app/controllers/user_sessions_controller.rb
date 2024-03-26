@@ -17,6 +17,7 @@ class UserSessionsController < ApplicationController
           flash.now[:alert] = t('errors.flash_messages.inactive')
         end
         render action: 'new', status: :unprocessable_entity
+        
       end
     end
   end

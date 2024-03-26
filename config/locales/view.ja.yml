@@ -55,6 +55,15 @@ ja:
   requests:
     index:
       title: みんなのクエスト
+    create:
+      success: クエストが作成されました
+      failure: クエスト作成に失敗しました
+    update:
+      success: 編集しました
+      failure: 編集に失敗しました
+    destroy: 
+      success: クエストを削除しました
+
     new:
       title: リクエスト作成
     show:
