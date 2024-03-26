@@ -15,69 +15,29 @@
       <%= image_tag 'bearbox.png', alt: 'bear&giftbox' %>
     </div>
   </div>
-  <!-- 切り替え 「こんなプレゼント欲しいな」をゲーム感覚で友達に伝えられる、プレゼント伝達サービスです-->
-  <div class="mx-8 pb-16 container mx-auto flex items-center justify-center max-w-3xl w-full flex-row flex-col">
-    <p class="p-1.5 mx-8 text-ash font-bold text-center w-full bg-gradient-to-r from-green-200 to-indigo-200">
+  <!-- 切り替え-->
+  <div class="mx-8 pb-16 mx-auto flex items-center justify-center max-w-3xl flex-col">
+    <p class="p-1.5 mx-8 mb-8 text-ash text-sm font-bold text-center bg-gradient-to-r from-green-200 to-yellow-200">
       「こんなプレゼント欲しいな」をゲーム感覚で友達に伝えられる、プレゼント伝達サービスです
     </p>
-    <div class="my-12 text-left text-ash">
-        <p class="border-b-4 border-green-200 border-dotted mb-2 font-semibold text-center">プレゼント交換に悩んでませんか？</p>
-        <p class="text-sm mb-1"><i class="fa-regular fa-circle mr-1"></i>直接リクエストするのはつまらない</p>
-        <p class="text-sm mb-1"><i class="fa-regular fa-circle mr-1"></i>プレゼント交換がマンネリ化してきた😟</p>
-        <p class="text-sm"><i class="fa-regular fa-circle mr-1"></i>持ってるもの重複してあげちゃった💦</p>
-      </div>
-  </div>
-</section>
-<!-- 使い方 -->
-<section class="body-font">
-  <h1 class="text-4xl font-moti text-center mx-4 mt-16">- 使い方 -</h1>
-  <div class="container px-4 py-16 mx-auto max-w-3xl">
-  <h1 class="font-moti text-center mx-4 max-w-3xl">使い方は2パターン！</br>①欲しいものがある時は、フォームに登録してクエストを作ろう！ </br>②相手の欲しいものが知りたいときは、クエストに挑戦しよう！</h1>
-    <div class="flex flex-wrap -m-4">
-      <!-- コンテンツ1 -->
-      <div class="m-8 p-4 md:pt-8 bg-base-100 rounded-xl shadow-xl">
-        <div class="flex justify-start">
-          <div class="badge badge-outline mr-8">相手の欲しいものを知りたい方</div>
+    <!-- 使い方 -->
+    <div class="carousel mx-8">
+      <div id="slide1" class="carousel-item relative w-full">
+        <%= image_tag 'use1.png', alt: 'ギフトリクエストの使い方1', class: "w-full" %>
+        <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+          <a href="#slide2" class="btn btn-circle">❮</a> 
+          <a href="#slide1" class="btn btn-circle">❯</a>
         </div>
-        <div class="flex justify-center">
-          <%= link_to requests_path do %>
-          <%= image_tag 'quest.svg', alt: 'quest', class: "h-12" %>
-          <% end %>
-        </div> 
-        <div class="p-4 md:px-8">
-          <h1 class="title-font text-2xl text-center mb-4 md:mb-8 font-moti border-b-2 border-neutral pb-2">謎解きに挑戦する</h1>
-          <p class="leading-relaxed">「みんなのクエスト」ページから、他のユーザーが欲しいものを元に作った謎解きクエストに挑戦することができます。<span class="text-accent">タイトル</span>をクリックすると、クエストが始まります。自分の生成したクエストを選択した場合は、リクエスト詳細ページに行きます。また、<span class="text-red-800">ユーザーアイコン</span>をクリックすると、そのユーザーのマイページへ行くことができます。</p>
+      </div> 
+      <div id="slide2" class="carousel-item relative w-full">
+        <%= image_tag 'use2.png', alt: 'ギフトリクエストの使い方2', class: "w-full" %>
+        <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+          <a href="#slide2" class="btn btn-circle">❮</a> 
+          <a href="#slide1" class="btn btn-circle">❯</a>
         </div>
-        <div class="mx-8 md:m-12">
-          <%= image_tag 'sample1.png', alt: 'みんなのクエスト説明' %>
-        </div>
-      </div>
-      <!-- コンテンツ2 -->
-      <div class="m-8 p-4 md:pt-8 bg-base-100 rounded-xl shadow-xl">
-        <div class="flex justify-start">
-          <div class="badge badge-outline mr-8">欲しいものを相手に伝えたい方</div>
-        </div>
-        <div class="flex justify-end">
-          <div class="badge badge-accent mr-8 flex justify-end">ログイン限定</div>
-        </div>
-        <div class="flex justify-center">
-          <%= link_to new_request_path do %>
-          <%= image_tag 'create.svg', alt: 'create_quest', class: "h-12" %>
-          <% end %>
-        </div> 
-        <div class="p-4 md:px-8">
-          <h1 class="title-font text-2xl text-center mb-4 md:mb-8 font-moti border-b-2 border-neutral pb-2">欲しいものを登録してクエストを作る</h1>
-          <p class="leading-relaxed mb-2">AIで謎解きを生成できます。フォームに従って欲しいものを入力してください。</p>
-          <ul>
-            <li class="mb-2">欲しいもの:<br>プレゼントに欲しいものを入力。この内容を元にAIがクエストを生成します。</li>
-            <li class="mb-2">欲しい日:<br>プレゼントが欲しい日を入力。未入力でも可。</li>
-            <li>備考:<br>メモ。クエストに挑戦した人がクリア後、内容を見ることができます。未入力でも可。</li>
-          </ul>
-        </div>
-        <div class="mx-8 md:m-12 border-2 border-inherit">
-          <%= image_tag 'sample2.png', alt: 'リクエスト作成説明' %>
-        </div>
-      </div>
+      </div> 
     </div>
+  </div>
+    <!-- 使い方 -->
   </div>
 </section>

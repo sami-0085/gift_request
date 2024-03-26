@@ -11,12 +11,12 @@
       </div>
       <h1 class="text-3xl font-moti pt-4 lg:pt-0"><%= user.name %></h1>
       <div class="mx-auto lg:mx-0 w-4/5 pt-3 border-b-2 border-green-500 opacity-25"></div>
-      <% if user == current_user %>
+      <% if user == current_user && current_user.name != "ゲスト" %>
         <p class="pt-2 text-gray-600 text-sm flex items-center justify-center lg:justify-start">email: <%= current_user.email %></p>
       <% end %>
       <p class="pt-4 text-base font-bold flex items-center justify-center lg:justify-start">My Request: <%= user_requests.total_count %></p>
       <p class="py-8 text-sm">ギフトクエストをご利用いただきありがとうございます。<br>自己紹介欄になる予定です。</p> 
-      <% if user == current_user %>
+      <% if user == current_user && current_user.name != "ゲスト" %>
         <div class="actions">
           <%= link_to '編集', edit_profile_path, class: 'btn btn-primary' %>
         </div>
