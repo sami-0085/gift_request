@@ -1,10 +1,11 @@
 <% content_for(:title, t('.title')) %>
 
   <div class="max-w-screen-xl mx-auto py-6 md:px-8">
-    <div class="flex justify-center my-8">
-      <h1 class="text-3xl md:text-4xl font-moti flex items-center">
+    <div class="flex flex-col items-center justify-center my-8 mx-8">
+      <h1 class="text-3xl md:text-4xl font-moti flex items-center mb-4">
         <%= image_tag 'quest.svg', alt: 'quest', class: "h-9 mr-2" %><%= t('.title') %>
       </h1>
+      <p>みんなのクエストの中から、好きなクエストを選ぼう！タイトルをクリックすると、クエストが始まるよ。</p>
     </div>
 
     <% if @user_requests.present? %>
