@@ -43,7 +43,7 @@
         </div> 
         <div class="p-4 md:px-8">
           <h1 class="title-font text-2xl text-center mb-4 md:mb-8 font-moti border-b-2 border-neutral pb-2">クエストに挑戦する</h1>
-          <p class="leading-relaxed">「みんなのクエスト」ページから、他のユーザーが作ったクエストに挑戦することができます。<span class="text-accent">タイトル</span>をクリックすると、クエストが始まります。また、<span class="text-red-800">ユーザーアイコン</span>をクリックすると、そのユーザーのマイページへ行くことができます。</p>
+          <p class="leading-relaxed">「みんなのクエスト」ページから、他のユーザーが作ったクエストに挑戦することができます。<span class="text-accent">タイトル</span>をクリックすると、クエストが始まります。自分の生成したクエストを選択した場合は、リクエスト詳細ページに行きます。また、<span class="text-red-800">ユーザーアイコン</span>をクリックすると、そのユーザーのマイページへ行くことができます。</p>
         </div>
         <div class="mx-8 md:m-12">
           <%= image_tag 'sample1.png', alt: 'みんなのクエスト説明' %>
@@ -65,10 +65,10 @@
           <ul>
             <li class="mb-2">欲しいもの:<br>プレゼントに欲しいものを入力。この内容を元にAIがクエストを生成します</li>
             <li class="mb-2">欲しい日:<br>プレゼントが欲しい日を入力。未入力でも可</li>
-            <li>備考:<br>メモ。クエストに挑戦した人がクリア後、内容を見ることができます未入力でも可</li>
+            <li>備考:<br>メモ。クエストに挑戦した人がクリア後、内容を見ることができます。未入力でも可</li>
           </ul>
         </div>
-        <div class="mx-8 md:m-12 border-2 border-ash">
+        <div class="mx-8 md:m-12 border-2 border-inherit">
           <%= image_tag 'sample2.png', alt: 'リクエスト作成説明' %>
         </div>
       </div>

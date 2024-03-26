@@ -9,11 +9,11 @@
     <meta property="og:image" content="<%= image_url "og.png" %>" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@sammy_study" />
-
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <%= favicon_link_tag('favicon.ico') %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
     <link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&family=Zen+Kurenaido&display=swap" rel="stylesheet">
