@@ -38,7 +38,7 @@ class OpenaiQuestGenerationService
       - ヒント1:
       - ヒント2:
       - ヒント3:
-    - Theme choices: Provide 3 choices for the theme, one of which is the actual theme #{query}, formatted as follows:
+    - Theme choices: Provide 3 choices for the theme, one of which is the actual theme #{query}, and '#{query}' is output as is, formatted as follows:
       - 選択肢1:
       - 選択肢2:
       - 選択肢3:"
