@@ -3,12 +3,14 @@
   <div class="card bg-base-100 shadow-md">
     <div class="card-body flex items-left">
       <!-- Card content -->
-      <div class="flex items-center space-x-4"> <!-- Flexbox コンテナ -->
-        <% if user_request.user.avatar.attached? %>
-          <%= link_to user_path(user_request.user) do %>
-            <%= image_tag user_request.user.avatar.variant(:display), class: "rounded-full shadow-md h-20 w-20 min-w-20" %>
+      <div class="flex items-center space-x-4">
+        <div class="">
+          <% if user_request.user.avatar.attached? %>
+            <%= link_to user_path(user_request.user) do %>
+              <%= image_tag user_request.user.avatar.variant(:display), class: "rounded-full shadow-md h-20 w-20 object-cover min-w-20" %>
+            <% end %>
           <% end %>
-        <% end %>
+        </div>
         <!-- リンクパスを動的に変更 （本人のクエスト_リクエスト詳細、本人以外_クエスト挑戦） -->
         <% link_path = current_user == user_request.user ? request_path(user_request) : quest_path(user_request) %>
         <%= link_to link_path, class: "font-bold hover:text-accent" do %>

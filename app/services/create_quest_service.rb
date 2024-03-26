@@ -23,6 +23,8 @@ class CreateQuestService
     # 抽出したデータを@user_requestに保存
     @user_request.quest = match_quest
     @user_request.title = match_title
+    # Rails.logger.debug "match_quest value: #{match_quest.inspect}"
+
     if @user_request.save
       save_hints(hints)
       save_choices(match_choices)
