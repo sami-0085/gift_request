@@ -13,7 +13,7 @@ class QuestsController < ApplicationController
     selected_choice = params[:selected_choice]&.strip
     # ユーザー入力が存在するか、選択された選択肢が存在するかを確認
     answer = user_input.presence || selected_choice
-    # 正解を判定する条件（ここでは例として @quest オブジェクトから正解を取得する）
+    # 正解を判定する条件
     correct_answer = @quest.name.strip
     if answer.present? && correct_answer == answer
       # 正解の場合の処理

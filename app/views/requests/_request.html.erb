@@ -5,7 +5,9 @@
       <!-- Card content -->
       <div class="flex items-center space-x-4"> <!-- Flexbox コンテナ -->
         <% if user_request.user.avatar.attached? %>
-          <%= image_tag user_request.user.avatar.variant(:display), class: "rounded-full shadow-md h-20 w-20 min-w-20" %>
+          <%= link_to user_path(user_request.user) do %>
+            <%= image_tag user_request.user.avatar.variant(:display), class: "rounded-full shadow-md h-20 w-20 min-w-20" %>
+          <% end %>
         <% end %>
         <!-- リンクパスを動的に変更 （本人のクエスト_リクエスト詳細、本人以外_クエスト挑戦） -->
         <% link_path = current_user == user_request.user ? request_path(user_request) : quest_path(user_request) %>
@@ -25,11 +27,11 @@
         <span class="bg-ash text-white text-sm font-medium py-1 px-3 rounded-full">タグ2</span>
       </div>
 
-      
+      <!-- 削除機能 （本人のクエストの時のみ表示） -->
       <div class="flex justify-end items-center mt-2">
         <% if current_user && user_request.user_id == current_user.id %>
           <div class="mr-4">
-            <%= link_to "削除", request_path(user_request), data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか？'}, class: "link link-hover hover:text-accent" %>
+            <%= link_to "削除", request_path(user_request), data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか？'}, class: "link link-hover hover:text-accent text-red-800" %>
           </div>
         <% end %>
         <div>

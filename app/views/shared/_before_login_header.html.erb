@@ -1,4 +1,4 @@
-<header>
+<header class="bg-cyan-600/10">
   <div class="navbar">
     <div class="flex-1 px-4">
       <%= link_to '/' do %>
@@ -10,8 +10,9 @@
         <li><%= link_to 'ログイン', login_path %></li>
         <li><%= link_to '新規登録', new_user_path %></li>
         <li><%= link_to requests_path do %>
-          <%= image_tag 'quest.svg', alt: 'quest', class: "h-9" %>
-        <% end %></li>
+            <%= image_tag 'quest.svg', alt: 'quest', class: "h-9" %>
+            <% end %>
+        </li>
       </ul>
     </div>
   </div>

@@ -1,25 +1,22 @@
-<div class="my-10 mx-auto w-11/12 sm:w-6/5 max-w-2xl">
+<div class="my-10 mx-auto w-11/12 sm:w-6/5 max-w-3xl">
   <div class="card w-full bg-base-100 image-full shadow-xl">
     <figure><%= image_tag 'note.webp', alt: 'ノートを読む' %></figure>
     <div class="card-body">
-      <h2 class="card-title justify-center text-2xl">- Story2 -</h2>
+      <h2 class="card-title justify-center text-4xl font-moti">- Story2 -</h2>
         <div class="card w-full mx-auto bg-base-200 shadow-xl mt-4">
           <div class="flex flex-col md:flex-row items-center">
             <figure>
               <%= image_tag 'note.png', alt: 'Note', class: 'px-8 pt-8 md:pr-0 md:py-8' %>
             </figure>
-            <div class="card-body items-center text-left text-neutral">
+            <div class="card-body items-center text-left text-neutral font-poem">
               <h2 class="card-title"><%= @quest.title %></h2>
-              <p class="text-sm md:text-md"><%= @quest.quest %></p>
+              <p class="text-sm"><%= @quest.quest %></p>
             </div>
           </div>
         </div>
-      <div class="mt-4 sm:mt-8 sm:text-lg text-base/7">
-        文字から滲み出るのは、普段見せない<%= @quest.user.name %>の内面から湧き上がる深遠な感情の波。
-        まるで<%= @quest.user.name %>の魂の叫びであるかのように、繊細な言葉選びとリズムが静かながらも力強く私の心に響き渡る。
-        <%= @quest.user.name %>がいま心から欲しているものが、突然明らかになったようだった。<br>
-        そうか、<%= @quest.user.name %>が今、真に求めているのは──。<br>
-      </div>
+
+      <%= render 'story2', user_name: @quest.user.name %>
+
       <!-- モーダル -->
       <div class="flex justify-center">
         <button class="btn btn-primary w-3/5 mt-4" onclick="my_modal_4.showModal()">なるほど、求めているものはこれだ！</button>
@@ -52,7 +49,7 @@
       </div>
     </div>
   </div>
-  <p class="text-sm text-ash mx-2">この物語はAIによって創造されたフィクションであり、実際の人物・団体・事件とは一切関係ありません。作中には不自然な表現や想定外の言葉が含まれる可能性がありますので、ご了承ください。</p>
+  <%= render 'caution_note' %>
 </div>
 
 

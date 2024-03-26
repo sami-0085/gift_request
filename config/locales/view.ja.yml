@@ -37,11 +37,14 @@ ja:
     new:
       title: パスワードリセット
       password_reset: 送信
+    edit:
+      title: パスワード変更
+      password_reset: 変更
     create:
       success: パスワードリセット手順を送信しました
     update:
       success: パスワードを変更しました
-      fail:
+      fail: パスワードを変更できませんでした
   users:
     new:
       title: ユーザー登録

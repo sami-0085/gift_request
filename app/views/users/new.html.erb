@@ -1,13 +1,13 @@
 <% content_for(:title, t('.title')) %>
 
-<div class="hero min-h-screen bg-base-100 max-w-screen-xl mx-auto lg:rounded-xl">
-  <div class="hero-content w-full flex-col lg:flex-row-reverse mx-8">
+<div class="hero min-h-screen bg-base-100 max-w-screen-lg mx-auto lg:rounded-xl">
+  <div class="hero-content w-full flex-col lg:flex-row-reverse p-8">
     <div class="text-center lg:text-left lg:flex lg:items-center">
       <div class="lg:ml-4">
-        <h1 class="text-4xl lg:text-5xl font-bold"><%= t('.title') %></h1>
-        <p class="hidden lg:block py-4">欲しいものが見つかったらリクエスト登録！<br>誰かが気づいてくれるかも・・・</p>
+        <h1 class="text-4xl font-moti"><%= t('.title') %></h1>
+        <p class="hidden lg:block py-4 text-sm">プレゼントをクエストに、<br>サプライズに満ちた選択を</p>
       </div>
-      <div class="hidden lg:block lg:w-80">
+      <div class="hidden lg:block lg:w-64">
         <%= image_tag 'bearbox.png', alt: 'bear&giftbox' %>
       </div>
     </div>
@@ -17,31 +17,25 @@
         <%= render 'shared/error_messages', object: f.object %>
         <div class="card-body mx-auto">
           <div class="form-control mt-2">
-            <%= f.label :name, class: "label-text mb-1" do %>
-              <span class="border border-secondary rounded-md text-xs p-0.5 text-secondary mr-1">必須</span>ニックネーム
-            <% end %>
+            <%= f.label :name, class: "label-text mb-1" %>
             <%= f.text_field :name, placeholder: "クエスト太郎", class: "input input-bordered", required: true, autocomplete: "name" %>
           </div>
           <div class="form-control mt-2">
-            <%= f.label :email, class: "label-text mb-1" do %>
-              <span class="border border-secondary rounded-md text-xs p-0.5 text-secondary mr-1">必須</span>メールアドレス
-            <% end %>
+            <%= f.label :email, class: "label-text mb-1" %>
             <%= f.email_field :email, placeholder: "email@example.com", class: "input input-bordered", required: true, autocomplete: "email" %>
           </div>
           <div class="form-control mt-2">
-              <%= f.label :password, class: "label-text mb-1" do %>
-                <span class="border border-secondary rounded-md text-xs p-0.5 text-secondary mr-1">必須</span>パスワード
-              <% end %>
+              <%= f.label :password, class: "label-text mb-1" %>
               <%= f.password_field :password, placeholder: "password", class: "input input-bordered", required: true, autocomplete: "current-password" %>
           </div>
           <div class="form-control mt-2">
-              <%= f.label :password_confirmation, class: "label-text mb-1" do %>
-                <span class="border border-secondary rounded-md text-xs p-0.5 text-secondary mr-1">必須</span>パスワード確認
-              <% end %>
+              <%= f.label :password_confirmation, class: "label-text mb-1" %>
               <%= f.password_field :password_confirmation, placeholder: "password", class: "input input-bordered", required: true, autocomplete: "current-password" %>
           </div>
-          <div class="form-image mt-2">
-            <%= f.label :avatar, class: "label-text" %><br>
+          <div class="form-control mt-2">
+              <%= f.label :avatar, class: "label-text mb-1" do %>
+                <span class="border border-primary rounded-md text-xs p-0.5 text-primary mr-1 ">任意</span>プロフィール画像
+              <% end %>
             <%= f.file_field :avatar, accept: "image/jpeg,image/gif,image/png", class: "file-input file-input-bordered file-input-primary w-full max-w-xs" %>
           </div>
           <div class="form-control mt-4 lg:mt-6">

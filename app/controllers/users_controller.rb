@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  skip_before_action :require_login, only: %i[new create]
+  skip_before_action :require_login, only: %i[new create show]
+  before_action :set_user, only: %i[show]
 
   def new
     @user = User.new
@@ -18,9 +19,19 @@ class UsersController < ApplicationController
     end
   end
 
+  def show
+    @user_requests = @user.requests.order(created_at: :desc).page(params[:page])
+  end
+
   private
   #reset_password_token受け取る必要あるか？
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation, :avatar, :reset_password_token)
+  end
+
+  private
+
+  def set_user
+    @user = User.find(params[:id])
   end
 end

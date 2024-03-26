@@ -6,6 +6,6 @@
     per_page:      number of items to fetch per page
     remote:        data-remote
 -%>
-<span class="last hidden md:flex w-10 h-10 rounded-md hover:bg-primary border border-primary justify-center items-center">
+<span class="last hidden md:flex w-10 h-10 rounded-full hover:bg-cyan-600 bg-primary justify-center items-center">
   <%= link_to_unless current_page.last?, content_tag(:i, '', class: 'fa-solid fa-angles-right'), url, remote: remote %>
 </span>

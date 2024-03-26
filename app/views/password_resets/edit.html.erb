@@ -1,23 +1,35 @@
 <% content_for(:title, t('.title')) %>
 
-<div class="container mx-auto px-4">
-  <div class="max-w-md mx-auto my-10">
-    <h1 class="text-4xl font-bold mb-5 text-center">パスワード変更</h1>
-    <%= form_with model: @user, url: password_reset_path(@token), local: true do |f| %>
+<div class="hero min-h-screen bg-base-100 max-w-screen-xl mx-auto">
+  <div class="hero-content w-full flex-col lg:flex-row-reverse mx-8">
+    <div class="text-center lg:text-left lg:flex lg:items-center">
+      <div>
+        <h1 class="text-4xl lg:text-5xl font-moti"><%= t('.title') %></h1>
+        <p class="py-4">パスワードは6文字以上にしてください。</p>
+      </div>
+    </div>
+
+    <div class="card w-full max-w-sm shadow-2xl bg-base-100 lg:ml-16">
+      <%= form_with model: @user, url: password_reset_path(@token), local: true do |f| %>
         <%= render 'shared/error_messages', object: f.object %>
-      <div>
-        <%= f.label :email, class: "block text-sm font-medium text-gray-700" %>
-        <%= @user.email %>
-      </div>
-      <div>
-        <%= f.label :password, class: "block text-sm font-medium text-gray-700" %>
-        <%= f.password_field :password, class: "input input-bordered w-full max-w-xs", required: true %>
-      </div>
-      <div>
-        <%= f.label :password_confirmation, class: "block text-sm font-medium text-gray-700" %>
-        <%= f.password_field :password_confirmation, class: "input input-bordered w-full max-w-xs", required: true %>
-      </div>
-      <%= f.submit class: "btn btn-primary w-full" %>
-    <% end %>
+        <div class="card-body mx-auto">
+          <div class="form-control mt-2">
+            <%= f.label :email, class: "label-text" %>
+            <%= @user.email %>
+          </div>
+          <div class="form-control mt-2">
+              <%= f.label :password, class: "label-text mb-1" %>
+              <%= f.password_field :password, placeholder: "password", class: "input input-bordered", required: true, autocomplete: "current-password" %>
+          </div>
+          <div class="form-control mt-2">
+              <%= f.label :password_confirmation, class: "label-text mb-1" %>
+              <%= f.password_field :password_confirmation, placeholder: "password", class: "input input-bordered", required: true, autocomplete: "current-password" %>
+          </div>
+          <div class="form-control mt-4 lg:mt-6">
+            <%= f.submit t('password_resets.edit.password_reset'), class: "btn btn-primary" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
