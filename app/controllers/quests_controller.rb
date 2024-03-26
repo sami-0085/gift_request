@@ -7,9 +7,7 @@ class QuestsController < ApplicationController
   def choice; end
 
   def answer
-    # choice ビューからの入力を受け取る
     user_input = params[:name]&.strip
-    # hint ビューからの選択を受け取る
     selected_choice = params[:selected_choice]&.strip
     # ユーザー入力が存在するか、選択された選択肢が存在するかを確認
     answer = user_input.presence || selected_choice
